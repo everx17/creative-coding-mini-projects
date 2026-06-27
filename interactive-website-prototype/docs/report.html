@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Report: Large Coursework</title>
+</head>
+
+<body style="font-family: sans-serif;">
+<h1>Report: Large Coursework - &quot;ASMRnews website&quot;</h1>
+<h3>Introduction:</h3>
+<p>What is the essential story being told by your site and what type of structure did you choose to implement.</p>
+<p>My mission is to educate on what ASMR is, to inspire others about the science and art aspects of ASMR and also to raise interest and entertain through the latest and most accurate news about the ASMR community. I have chosen a flat header navigation with tabbed content as the secondary level of navigation for those pages that require it. </p>
+<h3>State 3 things that have inspired you when creating your website.</h3>
+<p>These could include guest speakers, other websites, artists, developers etc.</p>
+<p>
+	<ol>
+		<li>Other ASMR websites that currently exist are not informative, clear with their style or purpose, user friendly or attractive. Thus I am inspired to make one that would include all these elements. </li><br>
+		<li> I have been an ASMR creator for years and there has been much misunderstanding about the topic and the community. I feel that ASMR is a topic that is worth studying and thus aim to increase interest in this subject matter.</li><br>
+		<li> Another student from the course impressed me with the elegance of his code. Their potential, capabilities and knowledge in coding inspired me to want to work harder and achieve the same proficiency and professionalism.</li><br>
+	</ol>
+</p>
+<h3>State 3 ways in which your site is accessible.</h3>
+<p>
+	<ol>
+		<li>All images use an <b>alt</b> tag with a description to allow screen readers to describe the image content to blind users.</li><br>
+		<li>The default color scheme uses strong contrasts between background and text colors.</li><br>
+		<li>Instead of using fancy 3rd party fonts or enforcing any font in particular, the only style applied in regards to fonts is &quot;<b>font-family: sans-serif</b>&quot;. Since text without serifs is easier to read <span style="font-family: serif;">than text with serifs</span>, the choice of the actual font to be used is left to the browser, which ideally lets the user choose their preferred font for optimal legibility. In addition, due to responsive design, the user can zoom into the site at will for better legibility, without breaking the layout.</li><br>
+	</ol>
+</p>
+<h3>State 3 ways in which you have considered usability in your site.</h3>
+<p>
+	<ol>
+		<li>The site uses content-aware structural elements like <b>article</b>, <b>aside</b>, <b>figure</b> and <b>figcaption</b> to help screen-readers interpret the content.</li><br>
+		<li>The header navigation is consistent across all pages for easy orientation, marking the currently active page.</li><br>
+		<li>Checkboxes (subscription page) and radio buttons (audio polls on interactive page) use dedicated <b>label</b>s to allow screen readers to present those choices to blind users. Additionally, this allows the labels to be clicked instead of the actual checkbox or radio button, which helps all users by enlarging the target area that is clickable in order to activate an option, being beneficial for all users.</li><br>
+	</ol>
+</p>
+<h3>State 3 things you had to learn/find out by yourself when creating your site, and describe how you did that</h3>
+<p>(i.e. what searches you did, any new tools/techniques you learned, any changes/adaptations you made to a particular resource to make it work with your site).</p>
+<p>
+	<ol>
+		<li>Tabbed content including the ability to open a page with a specific tab being visible initially. Several pages required the content of a section to be replaced without reloading the entire page. Browsing W3schools.com I found and adapted the concept of tabbed content (see used resources below).</li><br>
+		<li>Dynamically replacing the CSS file, allowing for real-time switching of the site's color scheme with full control over each element's color in either scheme. </li><br>
+		<li>Creating a modal dialog/overlay with a backdrop that fades out the background and captures click events in order to dismiss the modal overlay when clicking outside of it. I checked the Privacy or Cookie consent overlays of several websites to understand how fading out the background works - simply by adding a semi-transparent black div over the whole viewport with a high z-order.</li><br>
+	</ol>
+</p>
+<h3>What aspect(s) of your work do you think worked well and why?</h3>
+<p>
+	<ul>
+		<li>Implementing the color scheme switcher (dark mode) is a valuable addition for a website dealing with the topics of relaxation and sleep.</li><br>
+		<li>Using Javascript to dynamically replace content in the DOM turned out to be a very powerful tool. It's possible to change the src tag of a video element and then reload the video in order to re-use the existing player to show another video. Dynamically showing poll results based on the user's choice and pointing out which fields of a form need fixing directly above the Submit button make the interaction with the site very convenient.</li><br>
+		<li>The pages containing tabbed content have a default content that will be displayed when loading those pages. However, when the user clicks on a certain study or video on the main page, the corresponding study or video should be loaded automatically inside the Studies or Social page. URL parameters turned out to be a simple yet effective solution to this problem, making for seamless transitions between the pages.</li><br>
+	</ul>
+</p>
+<h3>What aspect(s) of your work could be improved, and how might you do things differently another time?</h3>
+<p>
+	<ul>
+		<li>The target was to create the site without including any external 3rd party references like fonts, CSS or Javascript frameworks. While everything that was coded 'from scratch' works in principle, some items could be optimized by using an external library or framework. Especially the thumbnail slider on the Socials page has its shortcomings in that it's neither touch-sensitive (no swiping supoort) nor fully accessible (the controls can't be operated by keyboard alone). In a future project I'd probably resort to using a solution that is available from external resources.</li><br>
+		<li>Early on, some default CSS styles were defined for the most common HTML elements. Later on, for several of these elements the number of exception surpassed the number of elements that actually used the default style. This causes the CSS file to be a bit more confusing than it should be. In a future project I'd plan the actual styles for the elements more thoroughly before starting the actual implementation.</li><br>
+		<li>Since even in the normal color scheme some sections have bright text on black background, a simple swapping of background and text colors for the color theme switcher was not enough. Instead, once the site was finished, I created a copy of the CSS file and modified the colors in the copy. To achieve maximum flexibility in the color schemes and in order to allow for different transforms/filters to be applied to the images on hovering (e.g. zooming effect in normal mode vs. image desaturation in dark mode), different CSS attributes had to be styled for each scheme. Therefore I went with the approach of 2 separate, completely independent CSS files, but this doubles the effort for any slight addition or modification that is done afterwards. For a future project I should research a way to keep the 80...90% of styles that are shared between both schemes in one master file and only split the actually different styles into 2 small, easy to manage addon CSS files. </li><br>
+	</ul>
+</p>
+<h3>What resources were used when creating your work?</h3>
+<p>You should list here any sources of information, libraries, plug-ins or other code that you used to create your site. You should also reference any code you've used by inserting comments at the start of the scripts.</p>
+<p>
+	<ul>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_css_searchbar.asp">https://www.w3schools.com/howto/howto_css_searchbar.asp</a><br>
+		This could be used pretty much as is, only the need for a special symbol font was eliminated by changing the label of the Search button to &quot;Find&quot;.</li></br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_css_center-vertical.asp">https://www.w3schools.com/howto/howto_css_center-vertical.asp</a><br>
+		Even though the title suggests that this is only about vertical centering, it also has information on horizontal centering of divs that are placed manually (position: absolute). This became necessary for the main logo in the header, since the search bar and/or subscribe button should be able to overlap the title by a few pixels before the screen width media breakpoint places them below the logo. Flex boxes and grids don't allow for overlap of child elements, so there was no way around manual positioning.<br>
+		The solution to centering such elements consists of 2 steps: First the left and/or top edge of the div is set to 50%, which places that edge in the middle of the container (the 50% refer to the container in this case). In a second step, the content is translated left and/or up by a translate transform. The value is -50% in either case to indicate a movement left and/or up by 50% of the element's size (i.e. this time, the 50% refers to the element itself instead of the container). Ultimately, the middle of the element is aligned with the middle of the container, reaching true center.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_js_tabs.asp">https://www.w3schools.com/howto/howto_js_tabs.asp</a><br>
+		Searching for a way to change the content of section of a page without reloading the page or linking to a new page, I discovered the concept of tabbed content. It's not exactly what I was looking for, but it occured to me that the navigation tabs don't have to be attached directly to the content area. Instead they can be placed and styled separately to turn them into menus. After getting this to work and understanding the underlying concept (several divs of which only one is visible at any time), I created a second level of replacing the content for the &quot;Past Posts&quot; section of the Studies page. Here the list of selectable studies is spanned over 2 pages, which in turn can be navigated by the Next and Previous buttons below them.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.sitepoint.com/get-url-parameters-with-javascript">https://www.sitepoint.com/get-url-parameters-with-javascript</a><br>
+		After I had the solution for replacing a section of a page when clicking a button within that page, I realized that I also need a solution to have a page open up with a specific content of the dynamic section, to allow for a smooth transition from the main pain to any of the topic pages by clicking a specific study or video. I found URL parameters to be the solution. The main page appends a parameter to the URL of the topic page and that page checks for this parameter and replaces the default content by the selected one.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_js_slideshow.asp">https://www.w3schools.com/howto/howto_js_slideshow.asp</a><br>
+		Looking for a way to implement a thumbnail slider from scratch, I ran into serious difficulties, as all the ways I could find relied on libraries or frameworks. Ultimately I had the idea to convert a regular slideshow into a thumbnail slider by placing 3 images inside each of the divs that make up the slideshow. By repeating 2 out of 3 images on the next slide, adding a new one on the right and taking care of the wraparound, I was finally able to create a thumbnail slider with code I could understand and maintain myself instead of relying on a library or framework.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/4669771/images-side-by-side-without-any-space-between-them">https://stackoverflow.com/questions/4669771/images-side-by-side-without-any-space-between-them</a><br>
+		more specifically: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/10818059">https://stackoverflow.com/a/10818059</a><br>
+		Placing 3 images on each slide, I realized that even with zero margin and padding, there was still a gap between the images that caused a line wrap for the third image when styling them to 33.33% of the container width. There were no spaces in the HTML code, only line breaks. A search brought up the very same issue in a question on StackOverflow and the explanation for the space is given by the browser converting the line breaks and tabs (which are only used to make the HTML code legible) to a space character. The straightforward approach would be to place all img tags directly next to each other in one line. However, user Yaari provided a better solution by simply setting the font size to 0 for the container, making the unwanted spaces disappear while keeping the HTML source nicely formatted.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/19844545/replacing-css-file-on-the-fly-and-apply-the-new-style-to-the-page">https://stackoverflow.com/questions/19844545/replacing-css-file-on-the-fly-and-apply-the-new-style-to-the-page</a><br>
+		more specifically: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/30204425">https://stackoverflow.com/a/30204425</a><br>
+		Searching for &quot;website dark mode&quot; I found several solutions. Several approaches use CSS variables or add a class to the entire page's body to switch text and background colors. These seemed a bit limited in both browser support and versatility. The most flexible solution I found was replacing the CSS file entirely. I chose this solution for full control over each color in both color schemes.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/jsref/prop_win_localstorage.asp">https://www.w3schools.com/jsref/prop_win_localstorage.asp</a><br>
+		All ways to implement the color theme switcher face a common problem: when changing to another page within the site, the colors get reset to the default scheme. After some research into cookies, I found localstorage to be a lot easier to implement. If the user allows for non-volatile localstorage in their browser settings, this can also preserve the selected color scheme across multiple sessions, even when clearing cookies.</li><br>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.rollingstone.com">https://www.rollingstone.com</a> print magazine subscription page (direct linking is not possible because several session IDs are added while navigating to the form)<br>
+		The implemented subscription form is heavily based on RollingStones' print magazine subscription form. This can not be used in an actual website to avoid copyright issues and was only done for research purposes in the scope of this project. The HTML has been almost completely rewritten, getting rid of all Google and social network trackers and turning the checkout form into a newsletter subscription form. The CSS of the form turned out to be minimised by removing all spaces, tabs and line breaks. I beautified this file and removed anything that was not required. I did not integrate it into the main CSS file, since this form can't be used in an actual project because it looks too similar.</li><br>
+		The script was easy to understand and perfectly fit for the purpose, so the required changes were rather minimal. I just removed the debugging alert messages and adapted the names of the elements that should be colored red when their validation fails. The only major change is that the result of the validation is now written to the page itself instead of popping up an alert message. If the validation fails, the error message is presented directly above the Subscribe button. Upon successful validation, the form is hidden by a fullscreen confirmation message that also provides the user with a way back to the home page.<br>
+	</ul>
+</p>
+</body>
+</html>

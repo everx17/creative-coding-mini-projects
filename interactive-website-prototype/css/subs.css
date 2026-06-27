@@ -1,0 +1,448 @@
+﻿@charset "utf-8";
+/* used resources:
+https://www.rollingstone.com
+Print magazine subscription form
+original CSS file retrieved from:
+https://rollingstonesubscriptions.com/pubs/FR/RLS/images/conversion_order_pages/master.min_v2.css
+Changes:
+-prettified
+-removed all unnecessary styles
+-modified checkbox styling to work without external ressources (Google fonts), see input[type="checkbox"]
+-added styles for modal overlays (Privacy Policy, Terms of use, subscription success confirmation msg)
+! copyright issues - only used for educational purposes of this school project, unfit for productive use !
+*/
+
+body, div, h2, li, ul, p, span
+{
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+}
+
+ul
+{
+	list-style: none;
+}
+
+*,
+*:after,
+*:before
+{
+	box-sizing: border-box;
+}
+
+html
+{
+	font-size: 100%;
+}
+
+body
+{
+	background: #F8F8F8;
+	font-size: 16px;
+	font-family: sans-serif;
+	line-height: 1;
+}
+
+body *
+{
+	font-family: sans-serif;
+}
+
+h2
+{
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: 0.6px;
+	color: #000000;
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 12px;
+	padding-left: 10px;
+}
+
+p
+{
+	margin-bottom: 10px;
+}
+
+a
+{
+	text-decoration: none;
+	color: #d32531;
+}
+
+.terms p
+{
+	font-size: 14px;
+	line-height: 1.14;
+	letter-spacing: 0.4px;
+	color: #757575;
+	padding: 0 0 15px 10px;
+}
+
+.grid,
+.row
+{
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.grid
+{
+	width: 960px;
+	max-width: 100%;
+	margin: 0 auto;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.row
+{
+	-ms-flex-direction: row;
+	flex-direction: row;
+	width: 100%;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-top: 24px;
+	justify-content: space-between
+}
+
+.row>div
+{
+	margin: 0 10px 30px
+}
+
+.col-1,
+.col-2
+{
+	box-sizing: border-box;
+	margin: 10px;
+	vertical-align: top
+}
+
+.col-1
+{
+	width: calc(100% - 20px)
+}
+
+.col-2
+{
+	width: calc(50% - 20px)
+}
+
+.header
+{
+	text-align: center
+}
+
+.header img
+{
+	max-height: 4.5em;
+}
+
+.intro-text
+{
+	padding: 30px 0;
+	margin: 20px 0;
+	position: relative
+}
+
+.intro-text:before,
+.intro-text:after
+{
+	content: '';
+	height: 4px;
+	width: 70px;
+	background: black;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto
+}
+
+.intro-text:before
+{
+	top: 0
+}
+
+.intro-text:after
+{
+	bottom: 0
+}
+
+.intro-text h2
+{
+	font-size: 24px;
+}
+
+.intro-text p
+{
+	font-weight: 500
+}
+
+.bullet-list li
+{
+	padding: .2em 0 .2em 0;
+}
+
+.disclaimer
+{
+	text-align: center;
+	font-size: 12px;
+	font-size: .75rem;
+	color: #757575
+}
+
+#formerrormsg
+{
+	display: none;
+	width: 100%;
+	text-align: center;
+	color: #d32531;
+	font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"]
+{
+	padding: 20px;
+	width: 100%;
+	font-size: 20px;
+	letter-spacing: 0.4px;
+	transition: outline 300ms ease-in;
+	outline: 1px solid #CCCCCC;
+	border: none
+}
+
+input:focus,
+select:focus
+{
+	outline: 1px solid #28A8FA
+}
+
+input[type="checkbox"]
+{
+	/* hide the unstyleable default checkbox */
+	display: none;
+}
+
+input[type="checkbox"]+span
+{
+	/* style the actual label */
+	background: white;
+	padding: 20px;
+	transition: all 0.4s;
+	border: 1px solid #CCCCCC;
+	width: 100%;
+	display: flex;
+	font-size: 20px;
+}
+
+input[type="checkbox"]:checked+span
+{
+	/* change the border colour of the whole element if checked */
+	border: solid 1px #25a331
+}
+
+input[type="checkbox"] + *::before
+{
+	/* insert an empty 20px times 20px box with rounded borders as fake checkbox */
+	content: '';
+	font-size: 15px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	color: white;
+	background: transparent;
+	border: 2px solid black;
+	border-radius: 4px;
+	margin-right: 1em;
+	opacity: 1;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:checked + *::before
+{
+	/* fill the fake checkbox if the underlying (hidden) checkbox is checked */
+	content: '\2714';	/* this equals the tick sign (HTML entity &#10004;) */
+	font-size: 15px;
+	text-align: center;
+	color: white;
+	opacity: 1;
+	background: #25a331;
+	border-color: #125118;
+}
+
+.custom-dropdown__select
+{
+	font-size: 20px;
+	padding: 20px;
+	margin: 0;
+	border: 1px solid #CCCCCC;
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	width: 100%;
+}
+
+.custom-dropdown
+{
+	position: relative
+}
+
+.custom-dropdown::after,
+.custom-dropdown::before
+{
+	content: "";
+	position: absolute;
+	cursor: pointer;
+	pointer-events: none;
+}
+
+.custom-dropdown::after
+{
+	content: "\25BE";
+	height: 1em;
+	font-size: 20px;
+	line-height: 1;
+	right: 20px;
+	top: 50%;
+	margin-top: -.5em;
+}
+
+.custom-dropdown--white::before
+{
+	background-color: #fff;
+	border-left: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+.custom-dropdown--white::after
+{
+	color: rgba(0, 0, 0, 0.9)
+}
+
+input[type="submit"]
+{
+	width: 100%;
+	padding: 20px;
+	border: none;
+	background-color: #d32531;
+	color: white;
+	font-size: 20px;
+	letter-spacing: 0.4px;
+	transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	transition-delay: 0.2s;
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.26);
+	cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="submit"]:active
+{
+	box-shadow: 8px 8px 17px 0 rgba(0, 0, 0, 0.2);
+	transition-delay: 0s
+}
+
+#modalshader
+{
+	display: none;
+	position: fixed;
+	overflow: auto;
+	color: #000000;
+	background: rgba( 0, 0, 0, 0.6);
+	bottom: 0;
+	border: 0;
+	z-index:1002;
+	padding: 0;	
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	animation: fadeEffect 0.5s ease-out;
+}
+
+#modalaboutus, #modalprivacy, #modaltermsofuse
+{
+	display: none;
+	position: fixed;
+	overflow: auto;
+	color: #cccccc;
+	background: #333333;
+	bottom: 0;
+	border: .05em solid #cccccc;
+	border-radius: 0 .5em .5em;
+	z-index:1003;
+	padding: 1%;	
+	margin: 1%;
+	width: 98%;
+	max-height: 97%;
+	animation: slideInFromBottom 0.5s ease-out;
+}
+
+#modalconfirmmsg
+{
+	display: none;
+	position: fixed;
+	overflow: auto;
+	color: #000000;
+	background: inherit;
+	bottom: 0;
+	border: 0;
+	z-index:1001;
+	padding: 0;	
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	animation: fadeEffect 0.5s ease-out;
+}
+
+#confirmmsgcontent
+{
+	font-size: 20px;
+	padding: 20%;
+}
+
+/* Animation for fade-in: zero to full opacity */
+@keyframes fadeEffect
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+/* Animation for moving in from bottom:
+   translate the object downwards by 100% of its height,
+   then move it back up (if browser does not support 2D transforms,
+   it won't break anything, it'll just display directly without the animation) */
+@keyframes slideInFromBottom {
+	from {transform: translateY(100%);}
+	to {transform: translateY(0);}
+}
+
+@media (max-width: 840px)
+{
+	div[class^='col']
+{
+		width: 100%
+	}
+	.row.subscribe-options .subscribe-option .col-2
+{
+		margin: 10px
+	}
+	.row.subscribe-options .subscribe-option.best-deal:after
+{
+		bottom: 200px
+	}
+	.row
+{
+		margin-top: 20px
+	}
+	.row>div
+{
+		margin: 0 10px 20px
+	}
+}

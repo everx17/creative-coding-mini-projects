@@ -1,0 +1,23 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+.vs/
+
+# Build products (don’t commit)
+**/Debug/
+**/Release/
+**/x64/
+**/x86/
+**/*.pdb
+**/*.obj
+**/*.ilk
+**/*.exe
+**/*.dll
+
+# CMake / other build dirs (just in case)
+build/
+cmake-build-*/

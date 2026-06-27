@@ -1,0 +1,1046 @@
+﻿<!DOCTYPE html>
+<!-- used resources:
+https://www.w3schools.com/howto/howto_css_searchbar.asp
+(search bar)
+
+https://www.w3schools.com/howto/howto_js_tabs.asp
+(the tabbed Social network posts uses this concept)
+
+https://www.w3schools.com/howto/howto_js_slideshow.asp
+(the thumbnail slider is based upon the concepts and code provided there)
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- load stylesheet and preload dark mode stylesheet for minimal switching time -->
+	<link rel="stylesheet" href="./css/main.css" id="stylesheet">
+	<link rel="alternate stylesheet" href="./css/dark.css" title="darkmode">
+	<script src="js/interact.js"></script>
+	<script src="js/socials.js"></script>
+	<script src="js/slideshow.js"></script>
+	<title>ASMRnews - Socials</title>
+</head>
+
+<!-- give the body a unique id so it can be referenced in the CSS,
+also call the Javascript to apply the color scheme, init the thumbnails, video player and social posts -->
+<body id="ansocials" onload="applyStyle(); initSlideshow(); initSocialVideo();">
+	<header>
+		<!-- the main logo, will be placed in true center -->
+		<div id="headermain">
+			<img id="headermainimg" src="img/maintitleimage.png" alt="ASMRnews Main logo">
+		</div>
+		<!-- the Merch available button above the logo -->
+		<div id="headermerch">
+			<a href="merch.html">NEW! Merch available!</a>
+		</div>
+		<!-- the search bar, including the color scheme switch -->
+		<div id="headersearch">
+			<form>
+				<!-- place the color scheme switch in a prominent place and make it profit
+				from the already responsive design without the need for any more header divs -->
+				<span onclick="setDarkMode();return false;">&#x1F319;</span>
+				<span onclick="setMainMode();return false;">&#x1F4A1;</span>
+				<input type="text" placeholder="Search ASMRnews..." name="search">
+				<button type="submit">Find</button>
+			</form>
+		</div>
+		<!-- the subscribe button -->
+		<div id="headersubscr">
+			<a href="subscribe.html">
+				<img id="headersubimg" src="img/subbutton.png" alt="Click here to subscribe to our newsletter.">
+			</a>
+		</div>
+	</header>
+	<!-- the top navigation menu -->
+	<nav>
+		<ul>	<!-- vertical by default, but styled to horizontal for wide screens (selector nav ul) -->
+			<li><a href="index.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a aria-current="page">Socials</a></li>   	<!-- mark current page for screen readers + diff style --> 
+			<li><a href="studies.html">Studies</a></li>
+            <li><a href="interactive.html">Interactive</a></li>
+			<li><a href="merch.html">Merch</a></li>
+		</ul>
+	</nav>
+
+	<!-- The videos are the main aspect of this portion of the page, qualifying it as an article -->
+	<article id="socialvideoplayer">
+		<video id="socialvideo" width="100%" height="auto" controls>Your browser does not support video playback.</video>
+	</article>
+
+	<!-- The accompanying video description is responsively placed to the right or below the video player -->
+	<aside id="socialvideodesc">
+		<!-- only one instance of .videoinfocontainer will be visible at any time -->
+		<div class="videoinfocontainer">	<!-- 1st video -->
+			<div class="videotitle">	<!-- this class gets a larger font to highlight the video title -->
+				The Mechanic: Fixing You (RP unintelligible, trigger words)
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				A little intro to a new character.<br><br>
+				An expert mechanic that is confident when it comes to her field but turns 180° and gets way too anxious when it comes to people and social events!!<br><br>
+				This video took little more work to make. It was difficult due to space constrain and awkward angles for me to sit/move. The mic was very sensitive and picked up quite a lot of white noise (I choose to use the h6n as I noticed how good unintelligible/trigger words work with it). And if you noticed something off about certain parts, it was because some files got corrupted(again!) and I had to refilm and make do with what I have to work with since setting up and everything is too difficult for me to do so atm.<br>
+				However, I am quite happy with how it turned out and I hope you will like it too.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 2nd video -->
+			<div class="videotitle">
+				Stars I have seen them fall | Soundscape (Soft Spoken,Music,Trigger Sounds)
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				I love making soundscapes and I like to experiment.<br><br>
+				This one includes a royalty free sound track I found.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 3rd video -->
+			<div class="videotitle">
+				Little Jar of Tingles (An INTENSE Stereo Lo-Fi Soundscape)
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				Recorded with Marshall earpiece mic.<br><br>
+				Triggers include:<br>
+				Tapping, Crinkling, Scratching, Flipping Pages, Rainstick, Rubik's cube, Tissue Tearing, SK, Unintelligible, Mouthsounds
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 4th video -->
+			<div class="videotitle">
+				The Wharf | Ambience
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				This is an ambient sound track of what I imagine a place in a fantasy lore world to sound like.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 5th video -->
+			<div class="videotitle">
+				Aquarius : The Facts (With Talking)
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				For those that find soundscapes boring.<br><br>
+				This took me a few days to edit so I really hope y'all will like it.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 6th video -->
+			<div class="videotitle">
+				Eating Texas Chicken
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				It's been a long time since I did an eating vid. The last time I tried to do a texas chicken eating vid, the audio got lost so when I had some today, I just had to record a vid.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 7th video -->
+			<div class="videotitle">
+				Sleepy Soundscape (Humming, Hair Brushing, Shh/Sleep)
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				I hope with this one you'll sleep like a baby.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 8th video -->
+			<div class="videotitle">
+				Zen Garden
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				This zen garden was sent to me by Icnbuys!
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 9th video -->
+			<div class="videotitle">
+				Pretty Lighty-Objects
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				I got these items from a Fair during Christmas. I thought they were so pretty so I had to make a video with them. I don't know if it's clear in the video but the blue lagoon drink was a metallic blue - Admittedly it didn't taste as delicious as it looks XD<br><br>
+				Timestamps:<br>	<!-- employ Javascript to jump to a timecode within the video -->
+				<span class="videotimestamp" onclick="seekVideoToTime(0)";>00:00</span> Blue Lagoon Drink (Bottle+Water Sounds)<br>
+				<span class="videotimestamp" onclick="seekVideoToTime(354)";>05:54</span> LED Latex Balloon (Tapping+Sticky Fingers)<br>
+				<span class="videotimestamp" onclick="seekVideoToTime(651)";>10:51​</span> Multilayered<br>
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 10th video -->
+			<div class="videotitle">
+				Macbook Touching & Tapping
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				My phone turned off halfway so I decided to loop it :D
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+		<div class="videoinfocontainer">	<!-- 11th video -->
+			<div class="videotitle">
+				Binaural Fondling Fruit
+			</div>	<!-- end of title -->
+			<div class="videodesc">
+				Saw a pineapple in my house and I just had to.
+			</div> <!-- end of desc -->
+		</div>	<!-- end of container -->
+	</aside>
+
+	<!-- the thumbnail slider, based on slideshow code (reference at the start of this file and in report) -->
+	<article id="socialvideonav">
+		<div id="socialvideoheader">
+			<h2>Top Videos of the Week</h2>
+		</div>
+		 <!-- Slideshow container -->
+		<div class="slideshow-container">
+			<!-- turning a slideshow into a thumb slider by using 3 images per slide with an overlap of 2,
+			each overlayed by a small-font, semi-transparent background title text,
+			all employing Javascript to dynamically replace the currently playing video by the selected one;
+			only one instance of .mySlides will be visible at any time -->
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(1);">1 / 11 The Mechanic roleplay</div>
+				<div class="thumbtitle2" onclick="openVideo(2);">2 / 11 Stars I have seen them fall</div>
+				<div class="thumbtitle3" onclick="openVideo(3);">3 / 11 Little Jar of Tingles</div>
+				<img src="img/thumb01.jpg" alt="&quot;The Mechanic&quot; roleplay thumbnail" onclick="openVideo(1);">
+				<img src="img/thumb02.jpg" alt="&quot;Stars I have seen them fall&quot; thumbnail" onclick="openVideo(2);">
+				<img src="img/thumb03.jpg" alt="&quot;Little Jar of Tingles&quot; thumbnail" onclick="openVideo(3);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(2);">2 / 11 Stars I have seen them fall</div>
+				<div class="thumbtitle2" onclick="openVideo(3);">3 / 11 Little Jar of Tingles</div>
+				<div class="thumbtitle3" onclick="openVideo(4);">4 / 11 The Wharf soundscape</div>
+				<img src="img/thumb02.jpg" alt="&quot;Stars I have seen them fall&quot; thumbnail" onclick="openVideo(2);">
+				<img src="img/thumb03.jpg" alt="&quot;Little Jar of Tingles&quot; thumbnail" onclick="openVideo(3);">
+				<img src="img/thumb04.jpg" alt="&quot;The Wharf&quot; soundscape thumbnail" onclick="openVideo(4);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(3);">3 / 11 Little Jar of Tingles</div>
+				<div class="thumbtitle2" onclick="openVideo(4);">4 / 11 The Wharf soundscape</div>
+				<div class="thumbtitle3" onclick="openVideo(5);">5 / 11 Reading Aquarius Facts</div>
+				<img src="img/thumb03.jpg" alt="&quot;Little Jar of Tingles&quot; thumbnail" onclick="openVideo(3);">
+				<img src="img/thumb04.jpg" alt="&quot;The Wharf&quot; soundscape thumbnail" onclick="openVideo(4);">
+				<img src="img/thumb05.jpg" alt="&quot;Reading Aquarius Facts&quot; thumbnail" onclick="openVideo(5);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(4);">4 / 11 The Wharf soundscape</div>
+				<div class="thumbtitle2" onclick="openVideo(5);">5 / 11 Reading Aquarius Facts</div>
+				<div class="thumbtitle3" onclick="openVideo(6);">6 / 11 Texas Chicken Eating Sounds</div>
+				<img src="img/thumb04.jpg" alt="&quot;The Wharf&quot; soundscape thumbnail" onclick="openVideo(4);">
+				<img src="img/thumb05.jpg" alt="&quot;Reading Aquarius Facts&quot; thumbnail" onclick="openVideo(5);">
+				<img src="img/thumb06.jpg" alt="&quot;Texas Chicken Eating Sounds&quot; thumbnail" onclick="openVideo(6);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(5);">5 / 11 Reading Aquarius Facts</div>
+				<div class="thumbtitle2" onclick="openVideo(6);">6 / 11 Texas Chicken Eating Sounds</div>
+				<div class="thumbtitle3" onclick="openVideo(7);">7 / 11 Sleepy soundscape</div>
+				<img src="img/thumb05.jpg" alt="&quot;Reading Aquarius Facts&quot; thumbnail" onclick="openVideo(5);">
+				<img src="img/thumb06.jpg" alt="&quot;Texas Chicken Eating Sounds&quot; thumbnail" onclick="openVideo(6);">
+				<img src="img/thumb07.jpg" alt="&quot;Sleepy soundscape&quot; thumbnail" onclick="openVideo(7);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(6);">6 / 11 Texas Chicken Eating Sounds</div>
+				<div class="thumbtitle2" onclick="openVideo(7);">7 / 11 Sleepy soundscape</div>
+				<div class="thumbtitle3" onclick="openVideo(8);">8 / 11 Zen Garden</div>
+				<img src="img/thumb06.jpg" alt="&quot;Texas Chicken Eating Sounds&quot; thumbnail" onclick="openVideo(6);">
+				<img src="img/thumb07.jpg" alt="&quot;Sleepy soundscape&quot; thumbnail" onclick="openVideo(7);">
+				<img src="img/thumb08.jpg" alt="&quot;Zen Garden&quot; thumbnail" onclick="openVideo(8);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(7);">7 / 11 Sleepy soundscape</div>
+				<div class="thumbtitle2" onclick="openVideo(8);">8 / 11 Zen Garden</div>
+				<div class="thumbtitle3" onclick="openVideo(9);">9 / 11 Light Objects</div>
+				<img src="img/thumb07.jpg" alt="&quot;Sleepy soundscape&quot; thumbnail" onclick="openVideo(7);">
+				<img src="img/thumb08.jpg" alt="&quot;Zen Garden&quot; thumbnail" onclick="openVideo(8);">
+				<img src="img/thumb09.jpg" alt="&quot;Light Objects&quot; thumbnail" onclick="openVideo(9);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(8);">8 / 11 Zen Garden</div>
+				<div class="thumbtitle2" onclick="openVideo(9);">9 / 11 Light Objects</div>
+				<div class="thumbtitle3" onclick="openVideo(10);">10 / 11 Macbook Touching &amp; Tapping</div>
+				<img src="img/thumb08.jpg" alt="&quot;Zen Garden&quot; thumbnail" onclick="openVideo(8);">
+				<img src="img/thumb09.jpg" alt="&quot;Light Objects&quot; thumbnail" onclick="openVideo(9);">
+				<img src="img/thumb10.jpg" alt="&quot;Macbook Touching &amp; Tapping&quot; thumbnail" onclick="openVideo(10);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(9);">9 / 11 Light Objects</div>
+				<div class="thumbtitle2" onclick="openVideo(10);">10 / 11 Macbook Touching &amp; Tapping</div>
+				<div class="thumbtitle3" onclick="openVideo(11);">11 / 11 Binaural Fondling Fruit</div>
+				<img src="img/thumb09.jpg" alt="&quot;Light Objects&quot; thumbnail" onclick="openVideo(9);">
+				<img src="img/thumb10.jpg" alt="&quot;Macbook Touching &amp; Tapping&quot; thumbnail" onclick="openVideo(10);">
+				<img src="img/thumb11.jpg" alt="&quot;Binaural Fondling Fruit&quot; thumbnail" onclick="openVideo(11);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(10);">10 / 11 Macbook Touching &amp; Tapping</div>
+				<div class="thumbtitle2" onclick="openVideo(11);">11 / 11 Binaural Fondling Fruit</div>
+				<div class="thumbtitle3" onclick="openVideo(1);">1 / 11 The Mechanic roleplay</div>
+				<img src="img/thumb10.jpg" alt="&quot;Macbook Touching &amp; Tapping&quot; thumbnail" onclick="openVideo(10);">
+				<img src="img/thumb11.jpg" alt="&quot;Binaural Fondling Fruit&quot; thumbnail" onclick="openVideo(11);">
+				<img src="img/thumb01.jpg" alt="&quot;The Mechanic&quot; roleplay thumbnail" onclick="openVideo(1);">
+			</div>
+
+			<div class="mySlides">
+				<div class="thumbtitle1" onclick="openVideo(11);">11 / 11 Binaural Fondling Fruit</div>
+				<div class="thumbtitle2" onclick="openVideo(1);">1 / 11 The Mechanic roleplay</div>
+				<div class="thumbtitle3" onclick="openVideo(2);">2 / 11 Stars I have seen them fall</div>
+				<img src="img/thumb11.jpg" alt="&quot;Binaural Fondling Fruit&quot; thumbnail" onclick="openVideo(11);">
+				<img src="img/thumb01.jpg" alt="&quot;The Mechanic&quot; roleplay thumbnail" onclick="openVideo(1);">
+				<img src="img/thumb02.jpg" alt="&quot;Stars I have seen them fall&quot; thumbnail" onclick="openVideo(2);">
+			</div>
+
+		  <!-- Next and previous buttons -->
+		  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+
+		<!-- The dots/circles -->
+		<div style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>
+			<span class="dot" onclick="currentSlide(5)"></span>
+			<span class="dot" onclick="currentSlide(6)"></span>
+			<span class="dot" onclick="currentSlide(7)"></span>
+			<span class="dot" onclick="currentSlide(8)"></span>
+			<span class="dot" onclick="currentSlide(9)"></span>
+			<span class="dot" onclick="currentSlide(10)"></span>
+			<span class="dot" onclick="currentSlide(11)"></span>
+		</div> 
+	</article>
+
+	<!-- a full width breaking line, separating the video section from the social posts section -->
+	<article id="socialgossipheader">
+		<h2 class="extralarge">Latest Gossip!</h2>
+		<h2>Check out what people are saying</h2>
+	</article>
+
+	<!-- The social networks posts article, tabbed content -->
+	<article id="socialposts">
+		<!-- only one instance of .socialpostscontainer will be visible at any time -->
+		<div class="socialpostscontainer">	<!-- tab 1 container -->
+			<div class="socialpostentry">	<!-- tab 1 top entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social1t.jpg" alt="The Bee Movie but In ASMR thumbnail">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						The Bee Movie but In ASMR
+					</div>
+					<div class="socialpostsummary">
+						Has the meme gone too far...?<br>
+						Well, Gibi ASMR has done it once again, previously with the shrek movie and now, gifting us the pleasure of experiencing the Bee movie live action in ASMR!<br>
+						<br>
+						<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/watch?v=WVcx29q3ey4">Watch it on YouTube.</a>
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+			<div class="socialpostentry">	<!-- tab 1 bottom entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social1b.jpg" alt="KPOP Idols Try ASMR! - Ateez thumbnail">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						KPOP Idols Try ASMR! - Ateez
+					</div>
+					<div class="socialpostsummary">
+						Amazingly, Soy ASMR has managed to get a 1 hour ASMR interview of Ateez! <br>
+						<br>
+						<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/watch?v=q4oazYrn_tA">Watch it on YouTube.</a>
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+		</div>	<!-- end of tab 1 container -->
+
+		<div class="socialpostscontainer">	<!-- tab 2 container -->
+			<div class="socialpostentry">	<!-- tab 2 top entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social2t.jpg" alt="100 Triggers in xx minutes sample thumbnails">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						100 Triggers in xx minutes - The latest trend in ASMR
+					</div>
+					<div class="socialpostsummary">
+						Has the usual demand for extremely long videos finally taken a toll? 
+						How will declining attention span of users affect the future of ASMR?
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+			<div class="socialpostentry">	<!-- tab 2 bottom entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social2b.jpg" alt="Slave ASMR meme thumbnail">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						The Rise of Russian ASMRTISTS
+					</div>
+					<div class="socialpostsummary">
+						The Russians are jumping on the ASMR train and they are unstoppable!<br>
+						Check out these rising Russian ASMRTISTS:<br>
+						<li><a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCo-gAYrvd7WIrCRsNueddtQ">Kitty Klaw ASMR</a></li>
+						<li><a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCKpnB4SQuE6YqfHMleVNn_w">Moona</a></li>
+						<li><a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCfwHdaVGSYsiNZxVURboBmw">Belochka ASMR</a></li>
+						<li><a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCosFuTAmpPBlmTUobPW4nxA">Sleepy Cupcake ASMR</a></li>
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+		</div>	<!-- end of tab 2 container -->
+
+		<div class="socialpostscontainer">	<!-- tab 3 container -->
+			<div class="socialpostentry">	<!-- tab 3 top entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social3t.jpg" alt="ASMRTISTS eating fake (edible) purses and a polaroid camera">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						The Trend of Edible Inedible Objects
+					</div>
+					<div class="socialpostsummary">
+						Satisfying or nah?
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+			<div class="socialpostentry">	<!-- tab 3 bottom entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social3b.jpg" alt="A lipstick being squeezed onto a surface, destroying it">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						Destroying Makeup - Satisfying or a waste?
+					</div>
+					<div class="socialpostsummary">
+						As most of us may know, makeup can be expensive, especially quality ones.<br>
+						Many Asmrtists seem to have picked up an obsession with destroying makeup, mainly while showing off branded goods.<br>
+						This begs the question of whether this trend is ethical or wasteful? Or is this an opportunity to flaunt their wealth?
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+		</div>	<!-- end of tab 3 container -->
+
+		<div class="socialpostscontainer">	<!-- tab 4 container -->
+			<div class="socialpostentry">	<!-- tab 4 top entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social4t.jpg" alt="Heather Feather's &quot;You're A Star&quot; - An ASMR Space Journey thumbnail">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						Is Heather Feather Finally Back?
+					</div>
+					<div class="socialpostsummary">
+						Heather Feather Returns after 2 years hiatus with a literal bang! <br>
+						Check out her 30 minutes ASMR focused movie here! <br>
+						<br>
+						<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/watch?v=dsELpGVEyJg">Watch it on YouTube.</a>
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+			<div class="socialpostentry">	<!-- tab 4 bottom entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social4b.jpg" alt="A preview of PPOMO ASMR's Twitter post showing her face">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						PPOMO FACE REVEAL!
+					</div>
+					<div class="socialpostsummary">
+						Ppomo has finally posted a selfie on Twitter<br>
+						...And she is beautiful! <br>
+						<br>
+						<a target="_blank" rel="noopener noreferrer"  href="https://twitter.com/ppomodolii/status/992125692673310720">See for yourself.</a>
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+		</div>	<!-- end of tab 4 container -->
+
+		<div class="socialpostscontainer">	<!-- tab 5 container -->
+			<div class="socialpostentry">	<!-- tab 5 top entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social5t.jpg" alt="A photo of Jellybean ASMR giving a 3Dio ear massage wearing medical gloves">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						Where is Jellybean ASMR? <br>
+						- When Fan Obsession Goes too Far 
+					</div>
+					<div class="socialpostsummary">
+						Online stalking can be a serious threat. <br>
+						<br>
+						<a target="_blank" rel="noopener noreferrer"  href="https://www.reddit.com/r/asmr/comments/7zk64i/discussion_jellybeanasmr_is_no_longer_going_to/">Read her story on Reddit.</a>
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+			<div class="socialpostentry">	<!-- tab 5 bottom entry, horizontal layout -->
+				<div class="socialpostimage">
+					<img src="img/social5b.jpg" alt="A photo of Cloveress ASMR">
+				</div>
+				<div class="socialposttextwrapper">	<!-- wrapper to switch back to vertical layout -->
+					<div class="socialposttitle">	<!-- separate class to give the title a larger font -->
+						RIP Cloveress
+					</div>
+					<div class="socialpostsummary">
+						ASMRTISTS provide us with comfort, but what happens when they're the ones who need it?
+						Mental illness is very real and fatal. Cloveress has come far in the community. She will be missed.
+					</div>	<!-- end of post summary -->
+				</div>	<!-- end of post text wrapper -->
+			</div>	<!-- end of post entry -->
+		</div>	<!-- end of tab 5 container -->
+
+		<!-- end of post containers (tabs), the nav below is always visible -->
+		<div class="socialpostsnav">
+			<span class="socialpagenavl" onclick="plusSocialPg(-1)">&#10094;</span>
+			<span class="socialpagenum" onclick="currentSocialPg(1)">1</span>
+			<span class="socialpagenum" onclick="currentSocialPg(2)">2</span>
+			<span class="socialpagenum" onclick="currentSocialPg(3)">3</span>
+			<span class="socialpagenum" onclick="currentSocialPg(4)">4</span>
+			<span class="socialpagenum" onclick="currentSocialPg(5)">5</span>
+			<span class="socialpagenavr" onclick="plusSocialPg(1)">&#10095;</span>
+		</div>
+	</article>
+
+	<!-- aside with the Top 5 rankings, responsively placed next to or underneath the social posts -->
+	<aside id="socialranking">
+		<div class="socialrankingtitle">
+			<h2>TOP ASMRTISTS by Ranking</h2>
+		</div>
+		<div class="socialrankingentry">	<!-- top list entry 1 -->
+			<div class="socialrankingrank">
+				1
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCE6acMV3m35znLcf0JGNn7Q">Gibi ASMR</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- top list entry 2 -->
+			<div class="socialrankingrank">
+				2
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UClqNSqnWeOOUVkzcJFj4rBw">Tingting ASMR</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- top list entry 3 -->
+			<div class="socialrankingrank">
+				3
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UC6gLlIAnzg7eJ8VuXDCZ_vg">Gentle Whispering</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- top list entry 4 -->
+			<div class="socialrankingrank">
+				4
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCFmL725KKPx2URVPvH3Gp8w">ASMR Glow</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- top list entry 5 -->
+			<div class="socialrankingrank">
+				5
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCzGEGjOCbgv9z9SF71QyI7g">ASMR Zeitgeist</a>
+			</div>
+		</div>
+		<p>&nbsp;</p>
+		<div class="socialrankingtitle">
+			<h2>Our Favourite ASMRTISTS</h2>
+		</div>
+		<div class="socialrankingentry">	<!-- fav list entry 1 -->
+			<div class="socialrankingrank">
+				1
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCyiN63Gy-qfgg_KF9qVQZdg">ATMOSPHERE</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- fav list entry 2 -->
+			<div class="socialrankingrank">
+				2
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/c/MadeInFranceASMR/videos">Made In France ASMR </a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- fav list entry 3 -->
+			<div class="socialrankingrank">
+				3
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/user/DeepOceanOfsounds/videos">Deep Ocean of Sounds</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- fav list entry 4 -->
+			<div class="socialrankingrank">
+				4
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/channel/UCWTxtx3WtnGKLP89DmGOwVw">The Auracle</a>
+			</div>
+		</div>
+		<div class="socialrankingentry">	<!-- fav list entry 5 -->
+			<div class="socialrankingrank">
+				5
+			</div>
+			<div class="socialrankingname">
+				<a target="_blank" rel="noopener noreferrer"  href="https://www.youtube.com/user/themiracleforest/videos">Miracle Forest</a>
+			</div>
+		</div>
+	</aside>
+
+	<!-- the footer common to all pages -->
+	<footer>
+		<ul>	<!-- vertical by default, but styled horizontally if screen is wide enough -->
+			<li><span id="footerintro">Legal:</span></li>
+			<!-- employing Javascript to show the normally hidden legal divs -->
+			<li><a href="#" onclick="showAboutUsDiv();return false;">About Us</a></li>
+			<li><a href="#" onclick="showPrivacyDiv();return false;">Privacy</a></li>
+			<li><a href="#" onclick="showTermsOfUseDiv();return false;">Terms of use</a></li>
+			<li><span id="footeroutro">&copy; 2021 ASMRnews</span></li>
+		</ul>
+	</footer>
+
+	<!-- anything beyond here is normally invisible -->
+	<div id="modalshader" onclick="hideModalDivs()";>	<!-- the black semitransparent backdrop of legal overlays -->
+		<p> </p>	<!-- place something invisible here to make sure the div will display -->
+	</div>
+
+	<!-- About us section -->
+	<div id="modalaboutus">
+		<p>About this site</p>
+		<p>Our mission is to inspire, educate and entertain through the latest and most accurate news about the asmr community.</p>
+		<ul>
+			<li><a href="#" onclick="hideModalDivs();return false;">Close</a></li>
+		</ul>
+	</div>
+
+	<!-- Privacy Policy section -->
+	<div id="modalprivacy">
+		<p>Last updated: March 3, 2020</p>
+        <p>This Privacy Policy describes Our policies and procedures on the collection,
+            use and disclosure of Your information when You use the Service and tells
+            You about Your privacy rights and how the law protects You.</p>
+        <p>We use Your Personal data to provide and improve the Service. By using the
+            Service, You agree to the collection and use of information in accordance
+            with this Privacy Policy. This Privacy Policy has been created with the help
+            of the <a href="https://www.termsfeed.com/privacy-policy-generator/"
+                target="_blank">Privacy Policy Generator</a>.</p>
+        <h3>Interpretation and Definitions</h3>
+        <h4>Interpretation</h4>
+        <p>The words of which the initial letter is capitalized have meanings defined
+            under the following conditions. The following definitions shall have the
+            same meaning regardless of whether they appear in singular or in plural.</p>
+        <h4>Definitions</h4>
+        <p>For the purposes of this Privacy Policy:</p>
+        <ul>
+            <li>
+                <p><strong>Account</strong> means a unique account created for You to
+                    access our Service or parts of our Service.</p>
+            </li>
+            <li>
+                <p><strong>Company</strong> (referred to as either &quot;the
+                    Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
+                    this Agreement) refers to ASMRnews, 17 Sleep Street, S413370.</p>
+            </li>
+            <li>
+                <p><strong>Cookies</strong> are small files that are placed on Your
+                    computer, mobile device or any other device by a website, containing
+                    the details of Your browsing history on that website among its many
+                    uses.</p>
+            </li>
+            <li>
+                <p><strong>Country</strong> refers to: Singapore</p>
+            </li>
+            <li>
+                <p><strong>Device</strong> means any device that can access the Service
+                    such as a computer, a cellphone or a digital tablet.</p>
+            </li>
+            <li>
+                <p><strong>Personal Data</strong> is any information that relates to an
+                    identified or identifiable individual.</p>
+            </li>
+            <li>
+                <p><strong>Service</strong> refers to the Website.</p>
+            </li>
+            <li>
+                <p><strong>Service Provider</strong> means any natural or legal person
+                    who processes the data on behalf of the Company. It refers to
+                    third-party companies or individuals employed by the Company to
+                    facilitate the Service, to provide the Service on behalf of the
+                    Company, to perform services related to the Service or to assist the
+                    Company in analyzing how the Service is used.</p>
+            </li>
+            <li>
+                <p><strong>Third-party Social Media Service</strong> refers to any
+                    website or any social network website through which a User can log
+                    in or create an account to use the Service.</p>
+            </li>
+            <li>
+                <p><strong>Usage Data</strong> refers to data collected automatically,
+                    either generated by the use of the Service or from the Service
+                    infrastructure itself (for example, the duration of a page visit).
+                </p>
+            </li>
+            <li>
+                <p><strong>Website</strong> refers to ASMRnews.com, accessible from
+                    <a href="https://www.asmrnews.com"
+                        rel="external nofollow noopener"
+                        target="_blank">https://www.asmrnews.com</a></p>
+            </li>
+            <li>
+                <p><strong>You</strong> means the individual accessing or using the
+                    Service, or the company, or other legal entity on behalf of which
+                    such individual is accessing or using the Service, as applicable.
+                </p>
+            </li>
+        </ul>
+        <h3>Collecting and Using Your Personal Data</h3>
+        <h4>Types of Data Collected</h4>
+        <h5>Personal Data</h5>
+        <p>While using Our Service, We may ask You to provide Us with certain personally
+            identifiable information that can be used to contact or identify You.
+            Personally identifiable information may include, but is not limited to:</p>
+        <ul>
+            <li>
+                <p>Email address</p>
+            </li>
+            <li>
+                <p>Usage Data</p>
+            </li>
+        </ul>
+        <h3>Usage Data</h3>
+        <p>Usage Data is collected automatically when using the Service.</p>
+        <p>Usage Data may include information such as Your Device's Internet Protocol
+            address (e.g. IP address), browser type, browser version, the pages of our
+            Service that You visit, the time and date of Your visit, the time spent on
+            those pages, unique device identifiers and other diagnostic data.</p>
+        <p>When You access the Service by or through a mobile device, We may collect
+            certain information automatically, including, but not limited to, the type
+            of mobile device You use, Your mobile device unique ID, the IP address of
+            Your mobile device, Your mobile operating system, the type of mobile
+            Internet browser You use, unique device identifiers and other diagnostic
+            data.</p>
+        <p>We may also collect information that Your browser sends whenever You visit
+            our Service or when You access the Service by or through a mobile device.
+        </p>
+        <h3>Tracking Technologies and Cookies</h3>
+        <p>We use Cookies and similar tracking technologies to track the activity on Our
+            Service and store certain information. Tracking technologies used are
+            beacons, tags, and scripts to collect and track information and to improve
+            and analyze Our Service. The technologies We use may include:</p>
+        <ul>
+            <li><strong>Cookies or Browser Cookies.</strong> A cookie is a small file
+                placed on Your Device. You can instruct Your browser to refuse all
+                Cookies or to indicate when a Cookie is being sent. However, if You do
+                not accept Cookies, You may not be able to use some parts of our
+                Service. Unless you have adjusted Your browser setting so that it will
+                refuse Cookies, our Service may use Cookies.</li>
+            <li><strong>Flash Cookies.</strong> Certain features of our Service may use
+                local stored objects (or Flash Cookies) to collect and store information
+                about Your preferences or Your activity on our Service. Flash Cookies
+                are not managed by the same browser settings as those used for Browser
+                Cookies. For more information on how You can delete Flash Cookies,
+                please read &quot;Where can I change the settings for disabling, or
+                deleting local shared objects?&quot; available at <a
+                    href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
+                    rel="external nofollow noopener"
+                    target="_blank">https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_</a>
+            </li>
+            <li><strong>Web Beacons.</strong> Certain sections of our Service and our
+                emails may contain small electronic files known as web beacons (also
+                referred to as clear gifs, pixel tags, and single-pixel gifs) that
+                permit the Company, for example, to count users who have visited those
+                pages or opened an email and for other related website statistics (for
+                example, recording the popularity of a certain section and verifying
+                system and server integrity).</li>
+        </ul>
+        <p>Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies.
+            Persistent Cookies remain on Your personal computer or mobile device when
+            You go offline, while Session Cookies are deleted as soon as You close Your
+            web browser. You can learn more about cookies here: <a
+                href="https://www.termsfeed.com/blog/cookies/" target="_blank">All About
+                Cookies by TermsFeed</a>.</p>
+        <p>We use both Session and Persistent Cookies for the purposes set out below:
+        </p>
+        <ul>
+            <li>
+                <p><strong>Necessary / Essential Cookies</strong></p>
+                <p>Type: Session Cookies</p>
+                <p>Administered by: Us</p>
+                <p>Purpose: These Cookies are essential to provide You with services
+                    available through the Website and to enable You to use some of its
+                    features. They help to authenticate users and prevent fraudulent use
+                    of user accounts. Without these Cookies, the services that You have
+                    asked for cannot be provided, and We only use these Cookies to
+                    provide You with those services.</p>
+            </li>
+            <li>
+                <p><strong>Cookies Policy / Notice Acceptance Cookies</strong></p>
+                <p>Type: Persistent Cookies</p>
+                <p>Administered by: Us</p>
+                <p>Purpose: These Cookies identify if users have accepted the use of
+                    cookies on the Website.</p>
+            </li>
+            <li>
+                <p><strong>Functionality Cookies</strong></p>
+                <p>Type: Persistent Cookies</p>
+                <p>Administered by: Us</p>
+                <p>Purpose: These Cookies allow us to remember choices You make when You
+                    use the Website, such as remembering your login details or language
+                    preference. The purpose of these Cookies is to provide You with a
+                    more personal experience and to avoid You having to re-enter your
+                    preferences every time You use the Website.</p>
+            </li>
+        </ul>
+        <p>For more information about the cookies we use and your choices regarding
+            cookies, please visit our Cookies Policy or the Cookies section of our
+            Privacy Policy.</p>
+        <h3>Use of Your Personal Data</h3>
+        <p>The Company may use Personal Data for the following purposes:</p>
+        <ul>
+            <li>
+                <p><strong>To provide and maintain our Service</strong>, including to
+                    monitor the usage of our Service.</p>
+            </li>
+            <li>
+                <p><strong>To manage Your Account:</strong> to manage Your registration
+                    as a user of the Service. The Personal Data You provide can give You
+                    access to different functionalities of the Service that are
+                    available to You as a registered user.</p>
+            </li>
+            <li>
+                <p><strong>For the performance of a contract:</strong> the development,
+                    compliance and undertaking of the purchase contract for the
+                    products, items or services You have purchased or of any other
+                    contract with Us through the Service.</p>
+            </li>
+            <li>
+                <p><strong>To contact You:</strong> To contact You by email, telephone
+                    calls, SMS, or other equivalent forms of electronic communication,
+                    such as a mobile application's push notifications regarding updates
+                    or informative communications related to the functionalities,
+                    products or contracted services, including the security updates,
+                    when necessary or reasonable for their implementation.</p>
+            </li>
+            <li>
+                <p><strong>To provide You</strong> with news, special offers and general
+                    information about other goods, services and events which we offer
+                    that are similar to those that you have already purchased or
+                    enquired about unless You have opted not to receive such
+                    information.</p>
+            </li>
+            <li>
+                <p><strong>To manage Your requests:</strong> To attend and manage Your
+                    requests to Us.</p>
+            </li>
+            <li>
+                <p><strong>For business transfers:</strong> We may use Your information
+                    to evaluate or conduct a merger, divestiture, restructuring,
+                    reorganization, dissolution, or other sale or transfer of some or
+                    all of Our assets, whether as a going concern or as part of
+                    bankruptcy, liquidation, or similar proceeding, in which Personal
+                    Data held by Us about our Service users is among the assets
+                    transferred.</p>
+            </li>
+            <li>
+                <p><strong>For other purposes</strong>: We may use Your information for
+                    other purposes, such as data analysis, identifying usage trends,
+                    determining the effectiveness of our promotional campaigns and to
+                    evaluate and improve our Service, products, services, marketing and
+                    your experience.</p>
+            </li>
+        </ul>
+        <p>We may share Your personal information in the following situations:</p>
+        <ul>
+            <li><strong>With Service Providers:</strong> We may share Your personal
+                information with Service Providers to monitor and analyze the use of our
+                Service, to contact You.</li>
+            <li><strong>For business transfers:</strong> We may share or transfer Your
+                personal information in connection with, or during negotiations of, any
+                merger, sale of Company assets, financing, or acquisition of all or a
+                portion of Our business to another company.</li>
+            <li><strong>With Affiliates:</strong> We may share Your information with Our
+                affiliates, in which case we will require those affiliates to honor this
+                Privacy Policy. Affiliates include Our parent company and any other
+                subsidiaries, joint venture partners or other companies that We control
+                or that are under common control with Us.</li>
+            <li><strong>With business partners:</strong> We may share Your information
+                with Our business partners to offer You certain products, services or
+                promotions.</li>
+            <li><strong>With other users:</strong> when You share personal information
+                or otherwise interact in the public areas with other users, such
+                information may be viewed by all users and may be publicly distributed
+                outside. If You interact with other users or register through a
+                Third-Party Social Media Service, Your contacts on the Third-Party
+                Social Media Service may see Your name, profile, pictures and
+                description of Your activity. Similarly, other users will be able to
+                view descriptions of Your activity, communicate with You and view Your
+                profile.</li>
+            <li><strong>With Your consent</strong>: We may disclose Your personal
+                information for any other purpose with Your consent.</li>
+        </ul>
+        <h3>Retention of Your Personal Data</h3>
+        <p>The Company will retain Your Personal Data only for as long as is necessary
+            for the purposes set out in this Privacy Policy. We will retain and use Your
+            Personal Data to the extent necessary to comply with our legal obligations
+            (for example, if we are required to retain your data to comply with
+            applicable laws), resolve disputes, and enforce our legal agreements and
+            policies.</p>
+        <p>The Company will also retain Usage Data for internal analysis purposes. Usage
+            Data is generally retained for a shorter period of time, except when this
+            data is used to strengthen the security or to improve the functionality of
+            Our Service, or We are legally obligated to retain this data for longer time
+            periods.</p>
+        <h3>Transfer of Your Personal Data</h3>
+        <p>Your information, including Personal Data, is processed at the Company's
+            operating offices and in any other places where the parties involved in the
+            processing are located. It means that this information may be transferred to
+            — and maintained on — computers located outside of Your state, province,
+            country or other governmental jurisdiction where the data protection laws
+            may differ than those from Your jurisdiction.</p>
+        <p>Your consent to this Privacy Policy followed by Your submission of such
+            information represents Your agreement to that transfer.</p>
+        <p>The Company will take all steps reasonably necessary to ensure that Your data
+            is treated securely and in accordance with this Privacy Policy and no
+            transfer of Your Personal Data will take place to an organization or a
+            country unless there are adequate controls in place including the security
+            of Your data and other personal information.</p>
+        <h3>Disclosure of Your Personal Data</h3>
+        <h4>Business Transactions</h4>
+        <p>If the Company is involved in a merger, acquisition or asset sale, Your
+            Personal Data may be transferred. We will provide notice before Your
+            Personal Data is transferred and becomes subject to a different Privacy
+            Policy.</p>
+        <h4>Law enforcement</h4>
+        <p>Under certain circumstances, the Company may be required to disclose Your
+            Personal Data if required to do so by law or in response to valid requests
+            by public authorities (e.g. a court or a government agency).</p>
+        <h4>Other legal requirements</h4>
+        <p>The Company may disclose Your Personal Data in the good faith belief that
+            such action is necessary to:</p>
+        <ul>
+            <li>Comply with a legal obligation</li>
+            <li>Protect and defend the rights or property of the Company</li>
+            <li>Prevent or investigate possible wrongdoing in connection with the
+                Service</li>
+            <li>Protect the personal safety of Users of the Service or the public</li>
+            <li>Protect against legal liability</li>
+        </ul>
+        <h3>Security of Your Personal Data</h3>
+        <p>The security of Your Personal Data is important to Us, but remember that no
+            method of transmission over the Internet, or method of electronic storage is
+            100% secure. While We strive to use commercially acceptable means to protect
+            Your Personal Data, We cannot guarantee its absolute security.</p>
+        <h3>Links to Other Websites</h3>
+        <p>Our Service may contain links to other websites that are not operated by Us.
+            If You click on a third party link, You will be directed to that third
+            party's site. We strongly advise You to review the Privacy Policy of every
+            site You visit.</p>
+        <p>We have no control over and assume no responsibility for the content, privacy
+            policies or practices of any third party sites or services.</p>
+        <h3>Changes to this Privacy Policy</h3>
+        <p>We may update Our Privacy Policy from time to time. We will notify You of any
+            changes by posting the new Privacy Policy on this page.</p>
+        <p>We will let You know via email and/or a prominent notice on Our Service,
+            prior to the change becoming effective and update the &quot;Last
+            updated&quot; date at the top of this Privacy Policy.</p>
+        <p>You are advised to review this Privacy Policy periodically for any changes.
+            Changes to this Privacy Policy are effective when they are posted on this
+            page.</p>
+        <h3>Contact Us</h3>
+        <p>If you have any questions about this Privacy Policy, You can contact us:</p>
+        <ul>
+            <li>By email: legal@asmrnews.com</li>
+		</ul>
+		<ul>
+			<li><a href="#" onclick="hideModalDivs();return false;">Close</a></li>
+		</ul>
+	</div>
+
+	<!-- Terms of use section -->
+    <div id="modaltermsofuse">
+        <p>Terms of use</p>
+        <p>Last updated: March 28, 2021</p>
+        <p>Please read these terms and conditions carefully before using Our Service.</p>
+        <h3>Interpretation and Definitions</h3>
+        <h4>Interpretation</h4>
+        <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+        <h3>Definitions</h3>
+        <p>For the purposes of these Terms and Conditions:</p>
+        <ul>
+			<li>
+				<p><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>
+			</li>
+			<li>
+				<p><strong>Country</strong> refers to: Singapore</p>
+			</li>
+			<li>
+				<p><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to ASMRnews, 17 Sleep Street, S413370.</p>
+			</li>
+			<li>
+				<p><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>
+			</li>
+			<li>
+				<p><strong>Service</strong> refers to the Website.</p>
+			</li>
+			<li>
+				<p><strong>Terms and Conditions</strong> (also referred as &quot;Terms&quot;) mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the <a href="https://www.termsfeed.com/terms-conditions-generator/" target="_blank">Terms and Conditions Generator</a>.</p>
+			</li>
+			<li>
+				<p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
+			</li>
+			<li>
+				<p><strong>Website</strong> refers to ASMRnews.com, accessible from <a href="https://www.asmrnews.com" rel="external nofollow noopener" target="_blank">https://www.asmrnews.com</a></p>
+			</li>
+			<li>
+				<p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
+			</li>
+        </ul>
+        <h3>Acknowledgment</h3>
+        <p>These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
+        <p>Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.</p>
+        <p>By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.</p>
+        <p>You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.</p>
+        <p>Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
+        <h3>Links to Other Websites</h3>
+        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</p>
+        <p>The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+        <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
+        <h3>Termination</h3>
+        <p>We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</p>
+        <p>Upon termination, Your right to use the Service will cease immediately.</p>
+        <h3>Limitation of Liability</h3>
+        <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.</p>
+        <p>To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p>
+        <p>Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</p>
+        <h3>&quot;AS IS&quot; and &quot;AS AVAILABLE&quot; Disclaimer</h3>
+        <p>The Service is provided to You &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</p>
+        <p>Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.</p>
+        <p>Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
+        <h3>Governing Law</h3>
+        <p>The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.</p>
+        <h3>Disputes Resolution</h3>
+        <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</p>
+        <h3>For European Union (EU) Users</h3>
+        <p>If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.</p>
+        <h3>United States Legal Compliance</h3>
+        <p>You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a &quot;terrorist supporting&quot; country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
+        <h3>Severability and Waiver</h3>
+        <h4>Severability</h4>
+        <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p>
+        <h4>Waiver</h4>
+        <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.</p>
+        <h3>Translation Interpretation</h3>
+        <p>These Terms and Conditions may have been translated if We have made them available to You on our Service.
+        You agree that the original English text shall prevail in the case of a dispute.</p>
+        <h3>Changes to These Terms and Conditions</h3>
+        <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
+        <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
+        <h3>Contact Us</h3>
+        <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
+        <ul>
+			<li>By email: legal@asmrnews.com</li>
+		</ul>
+		<ul>
+			<li><a href="#" onclick="hideModalDivs();return false;">Close</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

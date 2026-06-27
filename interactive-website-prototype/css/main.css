@@ -1,0 +1,1287 @@
+﻿@charset "utf-8";
+/* used resources:
+https://www.w3schools.com/howto/howto_css_searchbar.asp
+(styles for search bar, #headersearch)
+
+https://www.w3schools.com/howto/howto_css_center-vertical.asp
+(also contains info on horizontal centering, used for main logo #headermain and merch teaser #headermerch)
+
+https://www.w3schools.com/howto/howto_js_tabs.asp
+(tabbed elements on Socials, Studies and Merch pages)
+
+https://www.w3schools.com/howto/howto_js_slideshow.asp
+(modified for the thumbnail slider on the Socials page)
+
+https://stackoverflow.com/questions/4669771/images-side-by-side-without-any-space-between-them
+https://stackoverflow.com/a/10818059
+(applied to the thumbnail slider on the Socials page)
+*/
+
+/* CSS Document for normal view */
+
+html
+{
+	background: rgb(255, 255, 255);	/* bright background */
+	transition: background 1.0s;	/* go easy on the user's eyes, increase brightness gently */
+}
+
+body
+{
+	margin: 0;
+	font-family: sans-serif;	/* no serifs for better legibility */
+	color: #cccccc;
+	/* mobile first, stack everything vertically */
+	display: flex; flex-direction: column;
+}
+
+header
+{
+	border: 0;		/* no border around the header */
+	padding: .5em;
+	margin: 0;
+	min-height: 11.5em;	/* this fits the main logo and the search + subscribe underneath */
+	background: #ffffff;
+	display: flex;
+	transition: background 1.0s;	/* go easy on the user's eyes, increase brightness gently */
+}
+
+nav
+{
+	border: 0;		/* no border around the nav bar */
+	padding: .5em;
+	margin: 0;		/* also no margin around it (make it a stripe) */
+	background: #000000;	/* dark background */
+}
+
+article
+{
+	border: 0;		/* no border around articles */
+	padding: .5em;
+	margin: 0 0 .5em 0;	/* a bit of margin below it */
+	color: rgb(1, 1, 1);	/* dark text on */
+	background: snow;	/* bright bg */
+	transition: color 1.0s, background 1.0s;	/* go easy on the user's eyes, increase brightness gently */
+}
+
+aside
+{
+	border: 0;		/* no border around asides */
+	padding: .5em;
+	margin: 0 0 .5em 0;	/* the same margin below it as for the articles */
+	background: #fefefe;	/* bright bg with */
+	color: rgb(1, 1, 1);	/* dark text on it */
+	transition: color 1.0s, background 1.0s;	/* go easy on the user's eyes, increase brightness gently */
+}
+		
+footer
+{
+	border: 0;		/* no border around the footer */
+	padding: .5em;
+	margin: 0;		/* also no margin around it (make it a stripe) */
+	background: #000000;	/* dark background */
+}
+
+h2
+{
+	margin-left: 1.8em;	/* keep headlines from sticking too far on the left side */
+}
+
+.extralarge
+{
+	font-size: 250%;	/* class to make super large headlines (used in conjunction with h2) */
+	margin-left: 1.1em;	/* left-align with normal h2 (less em because of larger font size */
+}
+
+ul
+{
+	display: flex;		/* unnumbered lists are used as containers for the nav bar, footer and some menus */
+	flex-direction: column;	/* by default (mobile view), place them underneath each other (vertical menu) */
+	margin: 0;
+	margin-right: 1.3em;
+}
+
+li
+{
+	list-style-type:none;	/* hide the bullet that normally comes with unnumbered list items */
+	margin: .3em 0;
+	flex: 1 1 100%;		/* make the items as wide as the list itself */
+}
+
+img
+{
+	transform: scale(1.00);	/* in normal mode, no change to image scaling by default */
+	transition: transform 0.5s;
+}
+ 
+img:hover, img:focus
+{
+	transform: scale(1.05);	/* scale images up when they are hovered or focused for pop-out effect */
+	transition: transform 0.5s;
+}
+ 
+#footerintro, #footeroutro
+{
+	display:inline-block;	/* align the footer caption 'Legal' and the copyright notice */
+	width:95%;		/* with the button links in the footer */
+	padding: .3em;
+	text-decoration: none;
+	text-align: left;
+}
+
+a
+{
+	display:inline-block;	/* most links are placed on buttons (exceptions below) */
+	width:95%;		/* and should take the whole width of the button */
+	color: #ffffff;		/* most links are on dark background (exceptions below) */
+	background: transparent;
+	padding: .3em;
+	text-decoration: none;
+	text-align: left;
+}
+
+.mainsocialpost a, #abouthistory a, .socialpostsummary a, .socialrankingname a, .studymaincontent a, #eventsviewmore a, #modalaboutus a, #modalprivacy a, #modaltermsofuse a
+{
+	display: initial;	/* these are not on a button, so undo display: inline-block */
+	padding: initial;	/* also default padding */
+}
+
+a:hover, a:focus
+{
+	background: transparent;
+	color: rgb(139, 171, 208);	/* most links should highlight in this colour (exceptions below) */
+}
+
+#mainnews a, #mainsocial a, #abouthistory a, #studiesads a, #eventsviewmore a, .studymaincontent a, .socialpostsummary a, .socialrankingname a
+{
+	color: #000000;			/* these are on light background, so make them dark */
+}
+
+#mainnews a:hover, #mainnews a:focus,
+#mainsocial a:hover, #mainsocial a:focus,
+#abouthistory a:hover, #abouthistory a:focus,
+#studiesads a:hover, #studiesads a:focus,
+#eventsviewmore a:hover, #eventsviewmore a:focus,
+.studymaincontent a:hover, .studymaincontent a:focus,
+.socialpostsummary a:hover, .socialpostsummary a:focus,
+.socialrankingname a:hover, .socialrankingname a:focus
+{
+	background: transparent;
+	color: rgb(139, 171, 208);	/* giving them a custom color undid the hover colour, so redo */
+}
+
+#mainconnect > a:hover, #mainconnect > a:focus, #mainnews > a:hover, #mainnews > a:focus
+{
+	background: transparent;
+	color: rgb(174, 43, 60);	/* these have a different highlight colour */
+}
+
+nav a
+{
+	text-align: center;		/* Navigation links are centered on their buttons */
+	background: transparent;
+}
+
+nav a[aria-current=page]
+{
+	font-variant: small-caps;	/* currently active page is styled differently */
+	font-weight: bold;
+}
+
+figure
+{
+	position: relative;
+	display: inline-block;
+	top: 0;				/* figure element fills its parent completely */
+	z-index: 1;			/* place it in the foreground */
+	margin: 0;
+	padding: 0;
+}
+
+figure img
+{
+	max-width: 100%;		/* the image inside takes the full width of the figure element */
+}
+
+figure figcaption
+{
+	position: absolute;		/* the caption is placed inside the picture area instead of below */
+	font-size: 1em;
+	font-weight: bold;
+	padding: .2em 1em .2em 1em;
+	bottom: 0.5em;			/* placing it near the bottom of the image */
+	z-index: 2;			/* place the caption one z-index above the image so it's visible */
+	background: #333333;
+	color: #cccccc;
+}
+
+.figurecaptitle
+{
+	font-size: 1.6em;		/* main teaser image has a larger title inside the caption */
+	font-weight: bold;
+}
+
+#headermain
+{
+	position: absolute;		/* taking full control of placement of the elements in the header */
+	padding: .6em 3em .6em 3em;	/* so there can be some overlap of elements for optimal responsiveness */
+	top: 1.8em;			/* leave some room above for the headermerch */
+	z-index: 2;
+	background: transparent;
+	color: #000000;
+	left: 50%;			/* this places the left edge of the element in the center of the container */
+	transform: translate(-50%, 0);	/* then this shifts the element 50% of its own width to the left for true center */
+}
+
+#headermain img
+{
+	max-height: 4.5em;	/* the header is wide but limited height, so image height is constrained */
+	transform: scale(1.00);	/* disable the global scaling on hover effect for this image */
+}
+
+#headermerch
+{
+	position: absolute;		/* taking full control of placement */
+	font-size: 1em;
+	font-weight: bold;
+	padding: .2em 1em .2em 1em;
+	top: 0;				/* place at the very top, so above the main logo */
+	z-index: 2;
+	background: rgb(157, 116, 240);	/* no color, that is assigned to the link in the next block */
+	left: 50%;			/* this places the left edge of the element in the center of the container */
+	transform: translate(-50%, 0);	/* then this shifts the element 50% of its own width to the left for true center */
+}
+
+#headermerch a	/* all links are colour-schemed and hover-sensitive, except this one */
+{
+	background: transparent;	/* overwrite schemed link bg color to let container bg show */
+	color: #000000;				/* overwrite default link color with one that can be seen on the container bg */
+	font-size: .8em;			/* and make it a little bit less obtrusive */
+}
+
+#headersearch
+{
+	position: absolute;		/* taking full control of placement */
+	font-size: 1em;
+	padding: .1em .1em .1em .1em;
+	background: transparent;
+	color: #000000;
+	top: 8.5em;		/* in default (mobile) state it's below the headline */
+	left: .5em;		/* and placed on the left */
+}
+
+#headersearch input[type=text]
+{
+	font-size: 17px;	/* size for the search text field */
+}
+
+#headersearch button
+{
+	float: right;		/* style the search button */
+	padding: 3px 6px 3px 6px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+}
+
+#headersearch span
+{
+	cursor: pointer;	/* show the dark mode switching symbols as clickable */
+}
+
+.topnav .search-container button:hover
+{
+  background: #ccc;		/* highlight color for hovering over search button */
+}
+
+#headersubscr
+{
+	position: absolute;		/* taking full control of placement */
+	font-size: 1em;
+	padding: .1em .1em .1em .1em;
+	background: transparent;
+	color: #000000;
+	top: 7em;		/* in default (mobile) state it's below the headline */
+	right: .5em;		/* and placed on the right */
+}
+
+#headersubscr img
+{
+	display: block;
+	max-width: 10em;	/* make sure it doesn't clash with the main title */
+	margin-left: auto;
+	margin-right: auto;
+	transform: scale(1.00);	/* disable the global scaling on hover effect for this image */
+}
+
+#mainconnect img
+{
+	height: 2em;
+	vertical-align: middle;
+	filter: invert(1);	/* the images are black+transparent, so make them white to show on the dark bg */
+}
+
+#emailus, #checkyourasmr
+{
+	font-size: 2em;		/* super large links for the important stuff */
+	width: 96%;
+	margin: 0;
+}
+
+#modalshader
+{				/* the dark backdrop behind the modal info windows (footer links) */
+	display: none;		/* normally hidden */
+	position: fixed;	/* place it relative to the screen */
+	overflow: auto;
+	color: #000000;
+	background: rgba( 0, 0, 0, 0.6);	/* a 60% opacity black for fading out the content below */
+	bottom: 0;				/* align at the very bottom */
+	border: 0;
+	z-index:1002;				/* a high z-index to place it above any content */
+	padding: 0;				/* make it truly full screen */
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	animation: fadeEffect 0.5s ease-out;	/* fade it in when it is displayed */
+}
+
+#modalaboutus, #modalprivacy, #modaltermsofuse
+{				/* the footer links content that goes on top of the dark backdrop */
+	display: none;		/* normally hidden */
+	position: fixed;	/* place it relative to the screen */
+	overflow: auto;
+	color: #cccccc;		/* light text */
+	background: #333333;	/* on dark bg */
+	bottom: 0;		/* align at the very bottom */
+	border: .05em solid #cccccc;
+	border-radius: 0 .5em .5em;
+	z-index:1003;		/* z-index is one above the dark backdrop so it'll show on top of it */
+	padding: 1%;		/* some padding so the text doesn't stick to the border */
+	margin: 1%;		/* some margin so a bit of the dark backdrop remains visivble/clickable to dismiss this */
+	width: 96%;		/* use full width (after margin and padding) */
+	max-height: 95%;	/* height is not given directly (only as high as required), only limited to the screen size */
+	animation: slideInFromBottom 0.5s ease-out;	/* slide it in from the bottom */
+}
+
+#mainteaser > figure
+{
+	cursor: pointer;	/* show the user that the whole figure works as a link */
+}
+
+#mainnews > a
+{
+	border: .1em solid black;	/* affects only links that are direct children */
+	text-align: center;		/* of this aside = Check your ASMR box */
+}
+
+#mainsocialposts, #mainsocialheader, #maintrendingheader
+{
+	display: flex;		/* the social posts previews and the 'View All' next to the headlines */
+	flex-direction: row;	/* shall be placed next to each other, so make these flex in rows */
+}
+
+#mainsocialheader a, #maintrendingheader a
+{
+  margin: 1.3em 0 0 1em;	/* align the 'View All' with the headline next to it */
+}
+
+.mainsocialpost
+{
+	border: .05em solid #383737;	/* Social post previews get a border around each one */
+	padding: 0 1% 2% 2%;	/* no top padding (h3 has its own), more padding bottom and left */
+	margin: 1%;			/* space them a bit apart */
+	width: 45%;			/* with padding and margin, 2 posts take almost the entire width of container */
+	cursor: pointer;	/* show the entire div as clickable */
+}
+
+.mainsocialpost img
+{
+	min-width: 3em;	/* just width doesn't work in all cases depending on the content next to it */
+	max-width: 3em;	/* so force it by setting min-width and max-width equally */
+	border-radius: 50%;	/* make it a circle */
+}
+
+.mainsocialpost h3
+{
+	display: flex;
+	align-items: center;
+}
+
+#maintrending
+{
+	color: rgb(255, 255, 255);	/* the trending videos section is inverted, bright text */
+	background: #000000;		/* on dark background */
+}
+
+/* Slideshow container */
+.slideshow-container, .mainthumbcontainer
+{
+	max-width: 96%;			/* the thumbnails + margin take a total of 100% of the container width */
+	position: relative;
+	margin: 2%;
+}
+
+.mySlides
+{
+	display: none;	/* Hide the images by default */
+	font-size: 0;	/* this allows each img tag to reside on a new code line */
+}					/* without causing space inbetween in the rendered output */
+					/* acknowledgement: user Yaari on StackExchange.com */
+.maintrendingthumbs
+{
+	display: block;	/* on the main page, there is only 1 page of thumbs, so display it right away */
+	font-size: 0;	/* same reason as for .mySlides above */
+}
+
+.mySlides img, .maintrendingthumbs img
+{
+	width: 33.33%;		/* 3 images of 33.33% width without any padding or margin */
+	padding: 0;
+	margin: 0;
+	cursor: pointer;	/* let the user know the thumbs are clickable */
+}
+
+.prev, .next
+{	/* Next & previous buttons for slideshow */
+	cursor: pointer;	/* indicate them to the user as clickable */
+	position: absolute;	/* manual alignment */
+	top: 50%;		/* center vertically and style it */
+	width: auto;
+	margin-top: -28px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;	/* fade the hover effect */
+	border-radius: 0 3px 3px 0;	/* for left button, the both right corners are rounded */
+	user-select: none;	/* prevent accidental highlighting by double clicking */
+}
+
+.next
+{
+	right: 0;	/* the next button is placed at the very right edge */
+	border-radius: 3px 0 0 3px;	/* for right button, the both left corners are rounded */
+}
+
+.prev:hover, .next:hover
+{
+	background-color: rgba(0,0,0,0.8);	/* On hover, add an 80% opaque black background */
+}
+
+/* Thumbnail title texts */
+.thumbtitle1, .thumbtitle2, .thumbtitle3
+{
+	color: #f2f2f2;	/* bright text */
+	background: rgba(0, 0, 0, 0.5);		/* semi-transparent black background */
+	font-size: 12px;	/* keep it small to not cover too much of the thumbnail */
+	padding: 2px 6px;
+	position: absolute;	/* position inside the slider area */
+	top: 0;			/* and at the very top of it */
+	left: 0;	/* default to left of container, will be overwritten below for thumbs 2 and 3 */
+	max-width: 33.33%;	/* limit the title area to the underlying image's width */
+	z-index: 2;	/* make sure it's on top of the image */
+	cursor: pointer;	/* show the title as clickable, like the image below it */
+}
+
+.thumbtitle2
+{
+	left: 33.33%;	/* Thumbnail title text for middle thumb */
+}
+
+.thumbtitle3
+{
+	left: 66.67%;	/* Thumbnail title text for rightmost thumb */
+}
+
+/* The dots/bullets/indicators */
+.dot
+{
+	cursor: pointer;	/* show them to the user as clickable */
+	height: 15px;
+	width: 15px;
+	margin: 0 2px 1em 2px;
+	background-color: #717171;	/* the background is the actual dot, inactive color */
+	border-radius: 50%;		/* border-radius 50% is used to create a circle (4 corners of 50% width + height each) */
+	display: inline-block;
+	transition: background-color 0.6s ease;	/* fade the active color in and out */
+}
+
+.active, .dot:hover
+{
+	background-color: #ccc;	/* highlight the currently active and any hovered dot */
+}
+
+#mainconnect
+{
+	color: rgb(255, 255, 255);	/* this aside has bright text */
+	background: rgb(1, 1, 1);	/* on dark background */
+}
+
+#mainconnect > a
+{
+	border-top: .1em solid white;	/* affects only links that are direct children */
+	text-align: center;		/* = a white separator line above 'Let us know' */
+}
+
+#aboutwhat, #aboutwhy, #abouthistory
+{
+	color: rgb(1, 1, 1);		/* the articles on the About page have dark text */
+	background: rgb(255, 255, 255);	/* on bright background */
+}
+
+#aboutwhat > p, #aboutwhy > p, #abouthistory > p, #aboutwhat > ul, #aboutwhy > ul, #abouthistory > ul, #aboutwhat h3, #aboutwhy h3, #abouthistory h3
+{
+	margin-left: 2.7em;		/* align with the headline */
+}
+
+#socialvideoplayer
+{
+	padding: .8em 4% 0 4%;	/* save height, but do not let the player protrude too far on the sides */
+}
+
+.videotitle
+{
+	font-size: 150%;		/* video title gets a larger font */
+	padding-bottom: .5em;	/* leave a bit of space towards the description */
+}
+
+.videotimestamp
+{
+	cursor: pointer;	/* show timecodes in the video description as clickable */
+}
+
+#socialvideonav
+{
+	color: rgb(255, 255, 255);	/* video navigation (thumb slider) has bright text */
+	background: #000000;		/* on dark background */
+}
+
+.socialpostentry, .socialrankingentry
+{
+	display: flex;			/* posts entries have text next to an image, */
+	flex-direction: row;	/* ranking entries have the name next to the rank */
+	width: 100%;			/* so allow their children to stack horizontally over the full width */
+}
+
+.socialpostimage
+{
+	min-width: 50%;	/* just width doesn't work in all cases depending on the content next to it */
+	max-width: 50%;	/* so force it by setting min-width and max-width equally */
+	display: flex;			/* required for the following 2 lines to work */
+	justify-content: center;	/* center horizontally in div */
+	align-items: center;		/* center vertically in div */
+}
+
+.socialpostimage img
+{
+	width: 96%;	/* use up 100% of width (2% padding + 96% img + 2% padding) */
+	padding: 2%;
+}
+
+.socialposttitle
+{
+	font-size: 1.5em;	/* title is larger and bold */
+	font-weight: bold;
+	padding: .5em 0 .5em 1em; /* top right bottom left, left 1em on a 1.5em font-size = actually 1.5em! */
+	text-align: left;
+}
+
+.socialpostsummary
+{
+	padding: 0 0 0 1.5em;	/* 1.5em left padding for the summary text */
+	text-align: left;		/* to match the actual padding of the title */
+}
+
+.socialpostsnav
+{
+	text-align: center;	/* the post nav bar is centered */
+	margin: 2em 0 1em 0;	/* a bit of space above and below the nav bar */
+	user-select: none;	/* prevent accidental highlighting by double clicking */
+}
+
+.socialpagenavl, .socialpagenavr, .socialpagenavldisa, .socialpagenavrdisa
+{
+	color: black;		/* left and right button, default for active or disabled = black text */
+	background-color: #ccc;	/* on light grey background */
+	border-radius: 50%;	/* make it a circle (4 corners of 50% width+height each) */
+	padding: 12px 16px 12px 16px;	/* The text is higher than wide, so for an actual circle more padding is required on left+right */
+	cursor: pointer;	/* show the buttons as clickable */
+}
+
+.socialpagenavldisa, .socialpagenavrdisa
+{
+	color: #777;	/* overwrite for disabled buttons: grey them out */
+	cursor: text;	/* cursor: not-allowed; looks too harsh */
+}
+
+.socialpagenum
+{
+	margin: 0 .3em 0 .3em;	/* space the numbers a bit apart horizontally */
+	padding: .2em;		/* some padding, so the border around the active number will not look squeezed */
+	cursor: pointer;	/* and show them to the user as clickable */
+}
+
+.currpage
+{
+	font-weight: bold;	/* current page number is bold */
+	border: 1px solid black;	/* and gets a black rectangle around it */
+	cursor: text;	/* cursor: not-allowed; looks too harsh */
+}
+
+.socialrankingrank
+{
+	min-width: 1.5em;	/* just width doesn't work in all cases depending on the content next to it */
+	max-width: 1.5em;	/* so force it by setting min-width and max-width equally */
+	height: 1.5em;		/* make it a perfect square, so the rounded border becomes a perfect circle */
+	border: .1em solid black;
+	border-radius: 50%;		/* 50% border radius = a circle */
+	margin: .2em;
+	font-size: 1.2em;
+	font-weight: bold;
+	display: flex;			/* required for the following 2 lines to work */
+	justify-content: center;	/* center horizontally in div */
+	align-items: center;		/* center vertically in div */
+}
+
+.socialrankingname
+{
+	font-size: 1.2em;		/* same font size as the rank next to it */
+	font-weight: bold;
+	padding: .4em 0 .6em 1em;	/* place it in line with the ranking */
+	text-align: left;
+}
+
+#studieslatest, #studiestopstories
+{
+	color: rgb(1, 1, 1);		/* dark text */
+	background: rgb(255, 255, 255);	/* on bright bg */
+}
+
+#studiesprevious
+{
+	color: rgb(1, 1, 1);		/* also dark text */
+	background: rgb(255, 255, 255);	/* on bright bg */
+	border-top: .5em solid black;	/* and a dark line above the previous studies selector */
+}
+
+#studiesads
+{
+	background: rgb(250, 250, 250);	/* bright background */
+}
+
+#studiesads img
+{
+	width: 80%;
+	max-width: 20em;
+	padding-left: 10%;
+}
+
+/* Style the div containing the buttons for both studies and merch categories selections */
+.studiesselector, .merchcatselector
+{
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	display: flex; flex-direction: column;
+	animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Style the buttons themselves */
+.studiesselector button, .merchcatselector button
+{
+	background-color: inherit;	/* same as the container */
+	color: #000000;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;		/* show them to the user as clickable */
+	padding: 14px 16px;
+	transition: 0.3s;	/* color changes for hover/active highlight happen within 0.3s */
+}
+
+/* Change background color of buttons on hover */
+.studiesselector button:hover, .merchcatselector button:hover
+{
+	background-color: #ddd;
+}
+
+/* currently active (last clicked) entry gets extra highlight */
+.studiesselector button.active, .merchcatselector button.active
+{
+	background-color: #ccc;
+}
+
+/* Style the dynamic post content areas, all content is hidden initially */
+.videoinfocontainer, .socialpostscontainer, .studiescontent, .merchcontent
+{
+	display: none;
+	padding: 6px 12px;
+	border: 0;
+	animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+#studiespg2
+{
+	display: none;	/* page 1 of studies is visible initially, hide page 2 */
+}
+
+#studiespg1 button
+{
+	float: right;	/* the Next button on page 1 is on the right */
+}
+
+.studymaintitle
+{
+	font-size: 1.5em;	/* the title of the study is printed large */
+	font-weight: bold;	/* and bold */
+	padding:1em;		/* and has some space all around it */
+}
+
+.studymainauthor, .studymaintimestamp
+{
+	padding: .5em .5em .5em 1.5em;	/* author and date/time are smaller with less space around */
+}
+
+.studymaincontent
+{
+	border: 1px solid #ccc;	/* frame the main text */
+	padding: .5em;			/* don't let the frame stick to the text */
+	margin-top: 1em;		/* and leave some extra space above (between date/time and the border) */
+}
+
+.studymaincontent h2
+{
+  margin-left: 0;
+}
+
+.studtopstoryentry, .studpaststoryentry
+{
+	display: flex;			/* the entries have a ranking or a thumbnail image next to */
+	flex-direction: row;	/* the summary text, so align these in a row instead of a column */
+	width: 100%;			/* make them full width, even if the content is short */
+}
+
+.studtopstoryrank
+{
+	min-width: 2em;	/* just width doesn't work in all cases depending on the content next to it */
+	max-width: 2em;	/* so force it by setting min-width and max-width equally */
+	height: 2em;
+	border: .1em solid black;
+	border-radius: 50%;		/* 50% border radius = a circle */
+	font-size: 1.5em;
+	font-weight: bold;
+	display: flex;			/* required for the following 2 lines to work */
+	justify-content: center;	/* center horizontally in div */
+	align-items: center;		/* center vertically in div */
+}
+
+.studpaststoryimg
+{
+	min-width: 8em;	/* just width doesn't work in all cases depending on the content next to it */
+	max-width: 8em;	/* so force it by setting min-width and max-width equally */
+	border: .2em solid black;
+	display: flex;			/* required for the following 2 lines to work */
+	justify-content: center;	/* center horizontally in div */
+	align-items: center;		/* center vertically in div */
+}
+
+.studpaststoryimg img
+{
+	width: 100%;	/* posts are listed underneath each other, so all img should have same (full) width */
+}
+
+.studtopstoryheader, .studpaststoryheader
+{
+	font-size: 1.5em;	/* the titles of the available studies are printed in large */
+	font-weight: bold;	/* and bold */
+	padding: 0 0 .5em 1em; /* top right bottom left, left 1em on a 1.5em font-size = actually 1.5em! */
+	text-align: left;
+}
+
+.studtopstorydesc, .studpaststorydesc
+{
+	padding: 0em 0 0 1.5em;	/* left alignment of 1.5em, since the header has the same value effectively */
+	text-align: left;
+}
+
+.eventcontainer
+{
+	display: flex;	/* events on the Interactive page are shown inside a flex box */
+	flex-direction: row;	/* align them next to each other if possible */
+	flex-wrap: wrap;	/* with automatic wrapping between them */
+	justify-content: space-between; /* and use the full width, extending space inbetween if required */
+}
+
+.eventitem
+{
+	padding: 0;	/* no padding between the image and a (possible, not actual) border */
+	margin: 1%;	/* 1% margin on all sides */
+	width: 48%;	/* together with 1% left and right margin, this places 2 items per row (on mobile) */
+}
+
+.eventitem img
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.eventitem figcaption
+{
+	left: 0;	/* width: 100% extends beyond the image, breaking the center alignment */
+	right: 0;	/* left: 0 and right: 0 combined is a workaround to get the desired result */
+	text-align: center;
+	background: transparent;
+}
+
+.upcomingevt .eventreservation span
+{
+	padding: .2em .8em .2em .8em;	/* upcoming events */
+	background: rgb(145, 50, 50);	/* have a colored bg */
+	color: rgb(0, 0, 0);					/* and black text */
+	cursor: pointer;				/* show them to the user as clickable */
+}
+
+.pastevt .eventreservation span
+{
+	padding: .2em .8em .2em .8em;	/* past events */
+	background: rgb(43, 40, 40);				/* have light grey bg */
+	color: #777;					/* and greyed out text */
+	cursor: text;					/* default cursor for non-clickable text */
+}
+
+.pastevt
+{
+	display: none;	/* initially, hide past events to collapse the container */
+}
+
+#eventsviewmore
+{
+	text-align: center;		/* horizontally center the View More element */
+	margin: .5em 0 1em 0;	/* and add a bit of space above and below */
+}
+
+.audiosampleitem
+{
+	display: flex;			/* audio samples have the polls next to them */
+	flex-direction: row;	/* so switch to rows instead of columns */
+	flex-wrap: wrap;		/* still, if the screen is too small, place the poll underneath */
+	border: .05em solid #333;	/* a border around each item to make it clearer which poll belongs to which audio in mobile view */
+	border-radius: 1em;		/* round the corners a bit */
+	margin: .2em 0 .2em 0;		/* just a little bit of space above and below so the borders don't stick together */
+}
+
+.audioclip
+{
+	width: 100%;			/* for mobile view, use full width for the container of the audio player */
+}
+
+audio
+{
+	display: block;
+	padding: 0 5% 0 5%;		/* pad the player with 5% of space on the left and right */
+	margin: 1em 0 1em 0;	/* and keep a distance above and below */
+	width: 90%;				/* use the remaining 90% after subtracting both l+r padding */
+}
+
+.audiovotewrapper
+{
+	padding: .5em 0 .5em 0;	/* a bit of space between top border and first line as well as between last line and bottom border */
+	width: 100%;	/* in mobile view, the vote gets the full width, so it's placed underneath the audio player */
+}
+
+.audiovoteintro, .audiovotebuttons, .audiovoteresult
+{
+	text-align: center;	/* center anything vote-related */
+}
+
+.audiovotebuttons
+{
+	margin: .5em 0 .5em 0;		/* keep some space between the vote buttons and the lines above and below */
+}
+
+#merchcatsel, #merchproducts, #merchcart, #merchcheckout
+{
+	color: rgb(1, 1, 1);	/* basically everything on the merch page has dark text */
+	background: rgb(255, 255, 255);		/* on bright background */
+}
+
+.merchcontent > h3
+{
+	margin-left: .5em;	/* the headline shouldn't stick directly to the left border */
+}
+
+.merchitems
+{
+	display: flex;			/* merch items are shown inside a flex box */
+	flex-direction: row;	/* align them next to each other if possible */
+	flex-wrap: wrap;		/* with automatic wrapping between them */
+	justify-content: space-between; /* and use the full width, extending space inbetween if required */
+}
+
+.merchitem
+{
+	border: .05em solid #383737;	/* a thin border around each item */
+	border-radius: .2em;			/* with just barely rounded corners */
+	padding: 0;						/* allow the content to fill the border entirely */
+	margin: 1%;						/* but keep a bit of space around the border */
+	width: 20em;	/* for alignment, set a fixed width, the height depends on the content */
+}
+
+.merchimage
+{
+	margin-bottom: .5em;	/* keep a bit of distance between image and the text below it */
+}
+
+.merchimage img
+{
+	margin: 0;		/* no space outside */
+	padding: 0;		/* nor inside any possible image border */
+	width: 100%;	/* use the full available width for the image */
+	border-bottom: 1px solid #383737;	/* a thin separator line towards the text below */
+}
+
+.merchfacts
+{
+	display: flex;	/* in order to place the item name and price in one line */
+	flex-direction: row;	/* make this a flex box with row alignment instead of column */
+	width: 100%;	/* use the full container width */
+}
+
+.merchname
+{
+	margin-left: .5em;	/* the name of the item has just a little space from the left border */
+}
+
+.merchprice
+{
+	text-align: right;	/* the price is aligned to the right */
+	flex: 1;			/* in a flexbox that fills everything next to the item name */
+	margin-right: .5em;	/* just keep a small space from the right border */
+	font-weight: bold;	/* and print the price in bold */
+}
+
+.merchdesc
+{
+	font-size: .9em;	/* the description gets a bit smaller font */
+	margin: .6em;	/* this is roughly the same as .5em on the default font size, so it aligns */
+}
+
+.merchsize
+{
+	margin: 0 .5em .5em .5em;	/* a bit of space around except the top (element above has bottom margin) */
+}
+
+.merchaddcart
+{
+	width: 100%;	/* Add to cart button uses full width */
+	padding: 10px;	/* a bit of space all around the text on the button */
+	border: none;
+	background-color: #8babd0;
+	color: white;
+	font-size: 20px;	/* the text is a bit larger than normal */
+	letter-spacing: 0.4px;	/* the larger font looks slighty squeezed, so add tiny space between letters */
+	cursor: pointer;	/* indicate to the user that it's clickable */
+}
+
+.merchaddcart:hover, .merchaddcart:active
+{
+	color: black;	/* button text turns black upon hovering or clicking the button */
+}
+
+.merchpagenav
+{
+	text-align: center;		/* horizontally center the page navigation */
+	margin: 2em 0 1em 0;	/* add a bit of space above and below */
+}
+
+.merchnavl, .merchnavr, .merchnavldisa, .merchnavrdisa
+{
+	color: black;			/* defaults for page select buttons = black text */
+	background-color: #ccc;	/* on bright grey background */
+	border-radius: 50%;		/* buttons are a circle (each corner rounded 50% of both width and height) */
+	padding: 12px 16px 12px 16px;	/* The text is higher than wide, so for an actual circle more padding is required on left+right */
+	cursor: pointer;		/* show it to the user as clickable */
+}
+
+.merchnavldisa, .merchnavrdisa
+{
+	color: #777;	/* disabled buttons are greyed out */
+	cursor: text;	/* cursor: not-allowed; looks too harsh */
+}
+
+.merchcurrpagenum
+{
+	font-weight: bold;	/* current page number is bold */
+	margin: 0 1em 0 1em;	/* with a bit of space around the border */
+	padding: .2em;		/* and some space inside the border */
+	border: 1px solid black;	/* and has a thin square around it */
+}
+
+.cartitem
+{
+	display: flex;	/* item name, quantity and price all go on the same line */
+	flex-direction: row;	/* so use a flex box with elements aligned in a row */
+	width: 100%;	/* and use the full width of the container */
+}
+
+.cartslot
+{
+	display: none;	/* empty slots for cart items are invisible */
+}
+
+.cartitemname
+{
+	margin: .5em;	/* name and quantity have a bit of space all around */
+}
+
+.cartitemprice
+{
+	margin: .5em;	/* as has the price */
+	text-align: right;	/* but it's aligned towards the right */
+	flex: 1;	/* of a flex element that uses all of the remaining width after name+quantity */
+}
+
+.cartsum
+{
+	border-top: 2px solid black;	/* a line above the sum */
+	display: flex;	/* 'Total' and the amount shall go to the same line */
+	flex-direction: row;	/* so use a flex box with elements aligned in a row */
+	width: 100%;	/* and use the full width of the container */
+}
+
+.cartsumtext
+{
+	margin-left: .5em;	/* same margin on the left as the separate items above */
+	padding-top: .5em;	/* and a bit of padding towards the top border that acts as a line above the sum */
+}
+
+.cartsumamt
+{
+	text-align: right;	/* aligned towards the right */
+	flex: 1;	/* of a flex element that uses all of the remaining width after the 'Total' text */
+	font-weight: bold;	/* sum is printed in bold */
+	margin-right: .5em;	/* same margin on the right as the separate items above */
+	padding-top: .5em;	/* and the same padding towards the line on top as the 'Total' text */
+}
+
+.merchcheckout
+{
+	width: 100%;	/* the checkout button uses the full width of the container */
+	padding: 20px;	/* with a good amount of space around the button text */
+	border: none;
+	background-color: #8babd0;
+	color: white;
+	font-size: 20px;	/* the text is a bit larger than normal */
+	letter-spacing: 0.4px;	/* the larger font looks slighty squeezed, so add tiny space between letters */
+	cursor: pointer;	/* indicate to the user that it's clickable */
+}
+
+.merchcheckout:hover, .merchcheckout:active
+{
+	color: black;	/* button text turns black upon hovering or clicking the button */
+}
+
+.audiosample
+{	/* the path is relative to the folder that this css file resides in */
+	cursor: url(../img/mic.png), pointer;	/* replace mouse pointer by custom image, with fallback */
+}
+
+/* Animation for fade-in: zero to full opacity */
+@keyframes fadeEffect
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+/* Animation for moving in from bottom:
+   translate the object downwards by 100% of its height,
+   then move it back up (if the browser does not support 2D transforms,
+   it won't break anything, it'll just display directly without the animation) */
+
+@keyframes slideInFromBottom
+{
+	from {transform: translateY(100%);}
+	to {transform: translateY(0);}
+}
+
+/* if there's enough display width, create a 10 column grid layout */
+/* for 10% steps of width adjustment of the (good layout control while keeping responsiveness) */
+@media (min-width: 50em)
+{ 
+	#anmain, #ansocials, #anstudies, #anmerch
+	{
+		display: grid;	/* switch to grid mode */
+		grid-template-columns: repeat(10, 1fr);	/* create 10 equal width columns */
+	}
+	
+	header
+	{
+		grid-column: 1 / -1;	/* header occupies all columns ('first from left' to 'first from right') */
+		grid-row: 1 / 1;		/* header is on row 1 */
+		min-height: 6.5em;		/* shrink height vs mobile layout, as Search/Subscribe move next to logo */
+	}
+
+	#headersearch
+	{
+		top: 0;				/* moves up to beside the logo instead of below it */
+	}
+
+	#headersubscr
+	{
+		top: 1.2em;				/* moves up to beside the logo instead of below it */
+	}
+	
+	nav
+	{
+		grid-column: 1 / -1;	/* nav occupies all columns ('first from left' to 'first from right') */
+		grid-row: 2 / 2;		/* nav is on row 2 */
+	}
+
+	/* main page grid definition */
+	#mainteaser
+	{
+		grid-column: 1 / 6;		/* the attention catcher uses columns 1 to (excluding) 6 */
+		grid-row: 3 / 3;		/* effectively the left half of row 3 = below the nav */
+	}
+
+	#mainnews
+	{
+		grid-column: 6 / -1;	/* news start on column 6 until all the way to the right */
+		grid-row: 3 / 3;		/* still on row 3, next to attention catcher */
+	}
+		
+	#maintrending
+	{
+		grid-column: 1 / -1;	/* trending videos occupy all columns, full width */
+		grid-row: 4 / 4;		/* on row 4 */
+	}
+
+	#mainsocial
+	{
+		grid-column: 1 / 7;		/* social post previews take columns 1 to (excluding) 7 */
+		grid-row: 5 / 5;		/* so the left 60% of row 5 */
+	}
+
+	#mainconnect
+	{
+		grid-column: 7 / -1;	/* Connect with us starts on column 7 and uses the remaining width */
+		grid-row: 5 / 5;		/* of row 5 */
+	}
+
+	/* socials page grid definition */
+	#socialvideoplayer
+	{
+		grid-column: 1 / 7;		/* columns 1 to (excluding) 7 */
+		grid-row: 3 / 3;		/* effectively the left 60% of row 3, below the nav */
+	}
+
+	#socialvideodesc
+	{
+		grid-column: 7 / -1;	/* columns 7 to end */
+		grid-row: 3 / 3;		/* on row 3, next to the video player */
+	}
+
+	#socialvideonav
+	{
+		grid-column: 1 / -1;	/* thumbnail slider uses full width */
+		grid-row: 4 / 4;		/* of row 4 */
+	}
+
+	#socialgossipheader
+	{
+		grid-column: 1 / -1;	/* the Gossip teaser uses full width */
+		grid-row: 5 / 5;		/* of row 5 */
+	}
+
+	#socialposts
+	{
+		grid-column: 1 / 7;		/* columns 1 to (excluding) 7 */
+		grid-row: 6 / 6;		/* left 60% of row 6 */
+	}
+
+	#socialranking
+	{
+		grid-column: 7 / -1;	/* starting from column 7 to end */
+		grid-row: 6 / 6;		/* so next to the posts on row 6 */
+	}
+
+	/* studies page grid definition */
+	#studieslatest
+	{
+		grid-column: 1 / 7;		/* columns 1 to (excluding) 7 */
+		grid-row: 3 / 5;		/* effectively the left 60% of rows 3 and 4, below the nav */
+	}
+
+	#studiestopstories
+	{
+		grid-column: 7 / -1;	/* columns 7 to end */
+		grid-row: 3 / 3;		/* on row 3, next to the top half of the study content */
+	}
+		
+	#studiesprevious
+	{
+		grid-column: 1 / 7;		/* columns 1 to (excluding) 7 */
+		grid-row: 5 / 5;		/* effectively the left 60% of row 5 */
+	}
+
+	#studiesads
+	{
+		grid-column: 7 / -1;	/* columns 7 to end */
+		grid-row: 4 / 6;		/* on rows 4 and 5, next to bottom half of latest + past studies selection */
+	}
+	
+	/* merch page grid definition */
+	#merchcatsel
+	{
+		grid-column: 1 / 4;		/* columns 1 to (excluding) 4 */
+		grid-row: 3 / 3;		/* effectively the left 30% of row 3, below the nav */
+	}
+	
+	#merchproducts
+	{
+		grid-column: 4 / -1;	/* columns from 4 to end */
+		grid-row: 3 / 98;		/* spanning rows 3 to just above the footer */
+	}
+	
+	#merchcart
+	{
+		grid-column: 1 / 4;		/* columns 1 to (excluding) 4 */
+		grid-row: 4 / 4;		/* effectively the left 30% of row 4, below the category selection */
+	}
+	
+	#merchcheckout
+	{
+		grid-column: 1 / 4;		/* columns 1 to (excluding) 4 */
+		grid-row: 5 / 5;		/* effectively the left 30% of row 5, below the shopping cart */
+	}
+
+	footer
+	{
+		grid-column: 1 / -1;	/* footer takes full width */
+		grid-row: 99 / 99;		/* and is the last row */
+		display: flex;			/* content of footer is aligned in flex container */
+	}
+
+	footer *
+	{
+		flex-flow: row wrap;	/* all in one line, wrap option just to make sure (shouldn't happen) */
+		flex: 1 1 0%;			/* all elements get equal width */
+	}
+
+	nav ul
+	{
+		flex-direction: row;	/* switch from vertical menu (mobile) to horizontal menu */
+	}
+
+	.eventitem
+	{
+		width: 30%;				/* on Interactive page, show 3 events per line (instead of 2 on mobile) */
+	}
+
+	.audioclip, .audiovotewrapper
+	{
+		width: 50%;				/* on Interactive page, place the audio polls next to the audios */
+	}
+}
